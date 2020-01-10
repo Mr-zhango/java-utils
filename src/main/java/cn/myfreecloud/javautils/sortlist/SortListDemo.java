@@ -18,7 +18,7 @@ class Student {
     String id;
     String year;
     String star;
-    Integer rank;
+    Integer order;
 }
 
 public class SortListDemo {
@@ -36,8 +36,8 @@ public class SortListDemo {
          * 针对排序字段可能为空的数据进行自定义排序
          */
         Collections.sort(codeSetList, (o1, o2) -> {
-            if (o1.getRank() != null && o2.getRank() != null) {
-                int diff = o1.getRank() - o2.getRank();
+            if (o1.getOrder() != null && o2.getOrder() != null) {
+                int diff = o1.getOrder() - o2.getOrder();
                 if (diff > 0) {
                     return -1;
                 } else if (diff < 0) {
@@ -45,9 +45,9 @@ public class SortListDemo {
                 } else {
                     return 0;
                 }
-            } else if (o1.getRank() == null && o2.getRank() == null) {
+            } else if (o1.getOrder() == null && o2.getOrder() == null) {
                 return 0;
-            } else if (o1.getRank() != null) {
+            } else if (o1.getOrder() != null) {
                 return -1;
             } else {
                 return 1;
