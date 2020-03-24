@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Getter
 @Setter
@@ -54,11 +55,6 @@ public class SortListDemo {
             }
         });
 
-        for (Student student : codeSetList) {
-            System.out.println(student.toString());
-        }
-
-
         /**
          * 多字段排序
          */
@@ -67,11 +63,20 @@ public class SortListDemo {
         codeSetListTwo.add(new Student("1", "2020", "1", 1));
         codeSetListTwo.add(new Student("2", "2020", "2", null));
         codeSetListTwo.add(new Student("3", "2020", "3", 2));
-        codeSetListTwo.add(new Student("4", "2019", "3", null));
+        codeSetListTwo.add(new Student("44", "2019", "3", 0));
         codeSetListTwo.add(new Student("3", "2019", "2", 2));
-        codeSetListTwo.add(new Student("2", "2018", "1", 2));
+        codeSetListTwo.add(new Student("12", "2018", "1", 2));
 
-        codeSetListTwo.sort(Comparator.comparing(Student::getYear, Comparator.reverseOrder()).thenComparing(Student::getStar));
+        // 过滤null值
+        List<Student> collect = codeSetListTwo.stream().filter(student -> student.getOrder() != null).collect(Collectors.toList());
+
+        // 排序
+        collect.sort(Comparator.comparing(Student::getOrder, Comparator.reverseOrder()).thenComparing(Student::getStar));
+        for (Student student : collect) {
+            System.out.println(student.toString());
+        }
+
+        codeSetListTwo.sort(Comparator.comparing(Student::getId, Comparator.reverseOrder()));
 
         for (Student student : codeSetListTwo) {
             System.out.println(student.toString());
