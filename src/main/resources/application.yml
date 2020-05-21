@@ -61,6 +61,26 @@ spring:
       port: 6379
       #连接超时时间（毫秒）
       timeout: 5000
+    mail:
+      host: smtp.126.com
+      username: zhangyang618@126.com
+      password:
+      enable:  true
+      smtp:
+        auth: true
+      starttls:
+        enable: true
+        required: true
+  ########################################
+
+msg:
+  subject: xxx提示您，会员注册成功邮件。
+  text:  恭喜您的账户{},注册成功!
+
+##MQ消息队列配置
+messages:
+  queue: messages_queue
+
 #    配置mybatis
 mybatis:
     type-aliases-package: cn.myfreecloud.web.repo.entity          # 所有Entity别名类所在包
