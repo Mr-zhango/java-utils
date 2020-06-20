@@ -6,6 +6,11 @@
     <modules>
         <module>fast-dfs</module>
         <module>common-utils</module>
+        <module>spring-demo-freemarker</module>
+        <module>spring-demo-jms</module>
+        <module>spring-demo-solr</module>
+        <module>spring-demo-solrutil</module>
+        <module>spring-demo-SpringBoot</module>
     </modules>
 
     <parent>
