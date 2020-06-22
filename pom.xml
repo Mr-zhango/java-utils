@@ -13,6 +13,7 @@
         <module>spring-demo-solr</module>
         <module>spring-demo-solrutil</module>
         <module>spring-demo-SpringBoot</module>
+        <module>rabbitmq-demo</module>
     </modules>
 
     <parent>
