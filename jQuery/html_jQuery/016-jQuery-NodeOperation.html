@@ -1,0 +1,78 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>jQuery节点操作</title>
+    <!--获取或者修改元素的属性值-->
+    <meta charset="utf-8">
+
+    <script type="text/javascript" src="http://localhost:63343/jQuery/js/jquery-1.8.3.js"></script>
+    <script type="text/javascript">
+        //获取或者修改标记的相关信息
+
+        //1.jQuery对象上的val()方法
+        //  (1)val()方法在没有参数的时候是获取标记的值,
+        //  (2)val("hello")在有参数的时候是设置参数的值
+
+        //2.jQuery对象上面的text()/html_jQuery()方法
+        //  (1)没有参数-->获取标记的文本值
+        //  (2)有参数-->设置文本的标记值
+
+        //3.jQuery对象上面的attr()方法
+        //  (1)attr('title')有一个参数的时候是获取指定属性的值
+        //  (2)attr('title','hello')有两个参数的时候是设置指定属性的值
+
+
+        /**
+         * 修改节点的操作
+         */
+        // $(function () {
+        //     //获取被选中选项的相关信息
+        //     var $option = $("#city :selected")
+        //     alert($option.val() + "title:"+$option.attr("title") + "id="+$option.attr("id")+"text:"+$option.text())
+        //
+        //
+        //     //修改被选中的选项的相关信息
+        //     $option.text("中国首堵")
+        //     $option.val("duche")
+        //     $option.attr("title","改变之后的标题")
+        //     $option.attr("id","id")
+        //
+        //
+        //
+        // })
+
+        /**
+         * 添加节点的操作,给下拉框动态的添加新的选项
+         */
+        //使用$("<option></option>")创建新的节点,返回的是新创建的节点对象
+
+        //页面加载完成就调用
+        $(function () {
+
+            var $option = $("<option></option>")    //创建一个新的选项
+
+            $option.attr("value","hangzhou");        //设置新的选项的value值
+
+            $option.attr("title","hz");            //设置新的选项的value值
+
+            $option.attr("id","hangzhou")
+
+            $option.text("杭州")
+
+            //把新添加的选项添加到select中去,结果option是select的子元素
+            $("#city").append($option);
+
+        })
+
+    </script>
+
+</head>
+<body>
+    <select id="city">
+        <option value="beijing" title="bj" id="beijing">北京</option>
+        <option value="shanghai" title="sh" id="shanghai" selected>上海</option>
+        <option value="guangzhou" title="gz" id="guangzhou">广州</option>
+    </select>
+</body>
+</html>

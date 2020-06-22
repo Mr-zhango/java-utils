@@ -1,0 +1,91 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>一</title>
+    <style type="text/css">
+        /**
+         *   换将选择符,只有当ul标记出现在div标记中的时候,这种效果才有效
+         */
+        div ul{
+            /*列表前面不显示小圆点*/
+            list-style-type: none;
+        }
+        /*中国的城市隐藏起来 使用id选择器*/
+        #cityOfChina{
+            /*
+             display: block;        显示
+             display: none;         不显示
+            */
+            display: none;
+        }
+
+        a:hover {
+            color: red;
+            cursor: pointer;
+        }
+    </style>
+    <script type="text/javascript" src="2.js"></script>
+    <script type="text/javascript">
+        var isShow = true;
+        //显示隐藏的城市
+        function showCityOfChian(linkObj) {
+            var ulObj = document.getElementById("cityOfChina");
+            if(isShow){
+                ulObj.style.display = "block";
+                isShow = false;
+                linkObj.title = "点我隐藏中国的城市";
+            }else {
+                ulObj.style.display = "none";
+                isShow = true;
+                linkObj.title="点我显示中国的城市";
+            }
+        }
+    </script>
+
+
+</head>
+
+<body>
+    <div>
+        <ul>
+            <li><a title="点我显示中国的城市" onclick="showCityOfChian(this)">中国</a>
+                <ul id="cityOfChina">
+                    <li>北京</li>
+                    <li>天津</li>
+                    <li>上海</li>
+                    <li>重庆</li>
+                </ul>
+            </li>
+            <li>美国
+                <ul>
+                    <li>芝加哥</li>
+                    <li>落砂机</li>
+                    <li>好莱坞</li>
+                </ul>
+            </li>
+        </ul>
+
+    </div>
+
+    <hr>
+
+    <ul>
+        <li>中国
+            <ul>
+                <li>北京</li>
+                <li>天津</li>
+                <li>上海</li>
+                <li>重庆</li>
+            </ul>
+        </li>
+        <li>美国
+            <ul>
+                <li>芝加哥</li>
+                <li>落砂机</li>
+                <li>好莱坞</li>
+            </ul>
+        </li>
+    </ul>
+</body>
+</html>

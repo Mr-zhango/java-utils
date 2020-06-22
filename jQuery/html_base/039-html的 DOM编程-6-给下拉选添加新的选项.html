@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>一</title>
+    <script type="text/javascript" src="2.js"></script>
+    <script type="text/javascript">
+        //onchange:输入标记的值被改变并且失去焦点的处理
+
+        /**
+         * 获取下拉框中被选中选项的值
+         * @param selectObj
+         */
+        function getSelectValue(selectObj) {
+//            var value  = selectObj.value
+//            alert("你选中的对象是:"+value)
+
+
+
+            //获取被选中对象的value和文本
+            //分析:<select标记中有多个<option>的子元素>
+            //所以下拉框标记的dom对象中有个数组的属性,保存的就是多个option对应的dom对象
+            //也就是说,标记的子元素在dom中就是dom对象中的属性
+            //options[] 返回包含下拉列表中的所有选项的一个数组。
+
+            //selectedIndex 设置或返回下拉列表中被选项目的索引号。
+
+            //下拉框中有个 被选中选项的索引
+            //根据被选中的选项的索引从数组中取出响应的元素,就是被选中的选项
+            var optionArr  = selectObj.options      //获取保存多个选项的数组
+
+            var index = selectObj.selectedIndex     //被选中选项的索引
+
+            var optionObj = optionArr[index]
+
+            alert("被选中的选项的value是:"+optionObj.value+"对应的文本是:"+optionObj.innerHTML +"-"+optionObj.innerHTML+"-"
+            +optionObj.text)
+
+
+        }
+
+        //获取文本框中输入的值,并且将其添加到下拉框选项中
+        function add() {
+            //获取文本框中输入的值
+            var str = document.getElementById("newxueli").value
+            var arr = str.split(",");
+
+            //向下拉框中添加新的选项,我们要操作的是<select>
+            //add() 向下拉列表添加一个选项。
+            /**
+             * add() 方法用于向 <select> 添加一个 <option> 元素。
+             语法
+             selectObject.add(option,before)
+             */
+            var option = document.createElement("option")   //创建一个新的选项
+            //option 必需。要添加选项元素。必需是 option 或 optgroup 元素
+            //before 必需。在选项数组的该元素之前增加新的元素。如果该参数是null，元素添加到选项数组的末尾。
+            option.text = arr[0];        //给新的选项设置文本
+            option.value = arr[1];      //设置选项的value
+            var selectObj = document.getElementById("xueli") //
+
+            selectObj.add(option,null)
+
+        }
+
+    </script>
+
+</head>
+
+<body>
+    <!--
+        title就是鼠标放到输入框上面的提示信息
+    -->
+    <input type="text" id="newxueli" title="新学历的格式:硕士,硕士"><input type="button" value="添加" onclick="add()">
+    <hr>
+    请选择学历
+    <select id="xueli" onchange="getSelectValue(this)">
+        <option value="gaozhong">高中</option>
+        <option value="dazhuan">大专</option>
+        <option value="benke">本科</option>
+        <option value="shuoshi">硕士</option>
+    </select>
+
+
+
+</body>
+</html>

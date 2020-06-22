@@ -1,0 +1,101 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>jQuery表单相关元素选择器</title>
+    <meta charset="utf-8">
+    <script type="text/javascript" src="http://localhost:63343/jQuery/js/jquery-1.8.3.js"></script>
+    <script type="text/javascript">
+
+        //专门用来选择和表单相关的元素,例如文本框,密码框,复选框下拉框,隐藏文本域,文件上传框多行文本框等
+        //无论这些标记是否出现在表单中,都可以被选择
+
+        //表单相关选择器的通用语法:$("input:标记的type属性"),例如$("input:type=tet")
+
+        //1.选择可用的标记,语法:$("input:enable")
+
+        //2.选择不可用的标记,语法:$("input:disabled")
+
+        //3.选择复选框被选中的标记,语法:$("input[type='checkbox']:checked")
+
+        //4.选择下拉框中被选中的选项,语法:$(":selected")
+        //页面加载完成就调用
+        $(function () {
+            //
+            $("#btn01").click(function () {
+                //01选择可用文本框并修改其值
+                //jQuery对象上面的val()方法有两个使用形式
+                //1.当val()没有参数的时候,是获取标记的value值
+                //2.当val()有参数的时候,设置标记的value值
+                $("input:enabled").val("Hello jQuery")
+            })
+
+            $("#btn02").click(function () {
+                //01选择可用文本框并修改其值
+                //jQuery对象上面的val()方法有两个使用形式
+                //1.当val()没有参数的时候,是获取标记的value值
+                //2.当val()有参数的时候,设置标记的value值
+                $("input:disabled").val("Hello jQuery")
+            })
+
+            $("#btn03").click(function () {
+                //选择复选框被选中的元素
+                var $checkboxs = $("input[type='checkbox']:checked");
+
+                $checkboxs.each(function (index,domObj) {
+                    alert("被选中的选项是"+ domObj.value)
+                })
+
+            })
+
+            $("#btn04").click(function () {
+
+                //选择下拉列表中被选中的元素
+
+                //这里使用一个后代选择器
+                var $options = $("#city option:selected")
+
+                $options.each(function (index, domObj) {
+
+
+                    //jQuery对面上面有val()方法,可以获取标记对象的value值
+                    //jQuery对面上面有text()/html_jQuery()方法,可以获取标记中的文本内容
+                    //jQuery对面上面有attr方法,可以获取标记对象中其他属性的值
+                    alert(domObj.value+"--"+$options.val()+"--"+$options.html()+"--"+$options.text()+"--"+$options.attr("title"))
+                })
+
+            })
+
+        })
+    </script>
+</head>
+<body>
+    <!--定义文本框-->
+    文本01：<input type="text" id="text01" value="value01" /><br>
+    文本02：<input type="text" id="text02" value="value02" disabled/><br>
+    文本03：<input type="text" id="text03" value="value03"/><br>
+    文本04：<input type="text" id="text04" value="value04" disabled/><br>
+    <br>
+    <!--定义复选框-->
+    <input type="checkbox" name="interest" value="reading" checked/>读书
+    <input type="checkbox" name="interest" value="food"/>美食
+    <input type="checkbox" name="interest" value="travel" checked/>旅游
+    <input type="checkbox" name="interest" value="music"/>音乐
+    <input type="checkbox" name="interest" value="shopping" checked/>购物
+    <br><br>
+    <!--定义下拉列表-->
+    <select id="city">
+        <option value="bj" title="beijing" selected>北京</option>
+        <option value="sh" title="shanghai">上海</option>
+        <option value="gz" title="guangzhou">广州</option>
+        <option value="sz" title="shenzhen">深圳</option>
+        <option value="hz" title="hangzhou">杭州</option>
+    </select>
+    <br><br>
+    <!--定义测试按钮-->
+    <button id="btn01">选择可用文本框并修改其值</button>
+    <button id="btn02">选择不可用文本框并修改其值</button>
+    <button id="btn03">选择复选框被选中的元素</button>
+    <button id="btn04">选择下拉列表中被选中的元素</button>
+</body>
+</html>

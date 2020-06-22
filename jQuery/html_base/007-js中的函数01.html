@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>练习一</title>
+    <script type="text/javascript">
+        /**
+         * js中的函数相当于java中的方法,把一组方法封装成一个整体
+         *
+         * js中声明函数的规范
+         * 方式一:
+         *  function 方法名([参数列表]){
+         *
+         *  }
+         *
+         *  方式二:
+         *  函数名称 = function([参数列表]){
+         *
+         *  }
+         *
+         *
+         *  参数列表的规范:
+         *      参数一名称,参数二名称
+         *
+         *
+         */
+        /**
+         * 1.声明没有参数,没有返回值类型的参数
+         *
+         */
+
+        function test1() {
+            alert("test1函数被调用");
+        }
+        
+        
+        test2 = function () {
+            alert("test2被调用");
+        }
+
+
+        test1();
+        test2();
+
+        /**
+         * 2.   声明有参数,没有返回值类型的函数
+         *      注意:声明函数的参数的时候,只写参数的名称,不需要写参数的类型
+         *
+         */
+
+        function test3(v1,v2) {
+            alert("test1被调用"+v1,v2);
+        }
+
+
+        test4 = function (v1,v2) {
+            alert(test2被调用+v1,v2);
+        }
+
+        test3(10,20);
+        test4("hello","world");
+
+        /**
+         * 3.   声明有参数,有返回值类型的函数
+         *      注意:如果在参数中有返回值,也不需要声明,直接在函数中返回计算结果即可
+         */
+
+        function test5( v1,v2) {
+            return "两个参数的test5()被调用,v1="+v1,"v2="+v2;
+        }
+
+        test6 = function (v1,v2) {
+            return "两个参数的test5()被调用,v1="+v1,"v2="+v2;
+        }
+
+        /**
+         * 当调用函数的时候,函数有返回结果,所以要声明一个变量接收函数的返回结果
+         *
+         */
+
+        var res1 = test5(10,20);
+        var res2 = test6("hello","world");
+
+        pringln(res1);
+        pringln(res2);
+
+
+        /**
+         * js是一门基于对象的编程语言,java是一门面向对象的编程语言
+         * 基于对象比面向对象要低一个层次,因为js中没有面向对象语言的高级特性,例如方法的重载,多态等等.
+         * 因此导致了浏览器在加载函数声明的时候,会按照自上而下的顺序进行加载,在调用的时候就只是调用最后加载的函数
+         * 注意:因为js中没有重载的概念,所以声明函数的时候,名称一定不要重复
+         *
+         */
+
+
+
+
+
+    </script>
+
+</head>
+<body>
+</body>
+</html>

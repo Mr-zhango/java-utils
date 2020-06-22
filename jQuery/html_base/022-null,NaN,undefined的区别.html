@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>一</title>
+    <script type="text/javascript" src="2.js"></script>
+    <script type="text/javascript">
+        //null,NaN,undefined的区别
+        //null是object类型,NaN是number类型,undefined就是undefined类型
+        var obj = null;
+
+        var num = NaN;
+        var ul;
+        pringln(obj);
+        pringln("obj的类型是:" + typeof obj)
+
+        pringln("num的类型是" + typeof num)
+
+        pringln("ul的类型是:" + typeof ul)
+
+        /**
+         * 两个null用 == ,===相比都是相同的,两个null用==,===相比都是相同的
+         * null和undefined用==相比是相同的
+         * NaN和任何的数值都不相等,包括他自己
+         *
+         *
+         */
+
+        pringln("<br>")
+        pringln("null == null ?" + (null == null))
+        pringln("null === null ?" + (null === null))
+
+        pringln("undefined == undefined ?" +  (undefined == undefined))
+        pringln("undefined === undefined ?" +  (undefined === undefined))
+
+        pringln("NaN == NaN ?" +  (NaN == NaN))
+        pringln("NaN === undefined ?" +  (NaN === undefined))
+
+
+
+    </script>
+
+
+</head>
+<body>
+
+
+</body>
+</html>

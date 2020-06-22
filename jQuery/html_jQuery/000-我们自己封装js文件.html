@@ -1,0 +1,115 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>一</title>
+    <style type="text/css">
+
+    </style>
+    <!--<script type="text/javascript" src="http://localhost:63343/jQuery/js/1.js" ></script>-->
+    <script type="text/javascript" src="../js/1.js" ></script>
+    <script type="text/javascript">
+        //模拟jQuery的   id选择器
+        //
+        // function getElements() {
+        //     var $name = $("#name");
+        //     alert("你输入的名字是:" +$name.val());
+        // }
+
+        //模拟jQuery的   calss选择器
+        // function getElements() {
+        //     var $checkbox = $(".aihaoClass");
+        //     //alert("先拿到所有checkbox的value值:" +$checkbox.val());
+        //     //循环所有的值
+        //     for(var i = 0;i<$checkbox.length;i++){
+        //         //如果被选中的话
+        //         if($checkbox[i].checked){
+        //             //数组中的元素是一个个dom对象($checkbox[i])
+        //             alert($checkbox[i].value)
+        //         }
+        //     }
+        // }
+
+        //模拟jQuery的   标签选择器
+        function getElements() {
+
+            var $input = $("input");
+            alert("数组的长度是:"+ $input.length);
+            //数组的第0号元素是文本框  然后拿文本框的值.value
+            alert("你输入的名字是:" +$input[0].value)
+        }
+
+    </script>
+
+
+</head>
+
+<body>
+     <!--
+        页面中的标记有以下几种不同的形式
+        1.标记中有id属性(id属性是不能重复的)
+        2.多个标记的name属性一定要相同(例如一组checkbox,一组radio)
+        3.多个标记的class属性相同(例如一组checkbox,一组radio),注意:标记中可以单独使用class属性,而不是使用CSS
+        4.页面中有多个相同名称的标记,例如页面中有多个<input>标记
+
+     -->
+
+     <input type="text" name="name" id="name">
+     <hr>
+     <!--
+     <input type="checkbox" name="aihao" value="yundong">运动<br>
+     <input type="checkbox" name="aihao" value="dushu">读书<br>
+     <input type="checkbox" name="aihao" value="lvyou">旅游<br>
+     <input type="checkbox" name="aihao" value="meishi">美食<br>
+     <input type="checkbox" name="aihao" value="gouwu">购物<br>
+     -->
+     <hr>
+     <input type="checkbox" name="aihao" class="aihaoClass" value="yundong">运动<br>
+     <input type="checkbox" name="aihao" class="aihaoClass" value="dushu">读书<br>
+     <input type="checkbox" name="aihao" class="aihaoClass" value="lvyou">旅游<br>
+     <input type="checkbox" name="aihao" class="aihaoClass" value="meishi">美食<br>
+     <input type="checkbox" name="aihao" class="aihaoClass" value="gouwu">购物<br>
+
+    <input type="button" value="获取页面元素" onclick="getElements()">
+</body>
+</html>
+
+
+<!--
+<script type="text/javascript">
+    function getElements() {
+        //获取页面元素的不同方式
+        //1.根据标记的id属性来获取元素,获取到的是单个的元素(id不能重复)
+//            var nameInput = document.getElementById("name");
+//            alert("您输入的名字是:"+nameInput.value)
+
+        //2.根据标记的name属性来获取元素,页面中多个标记的name属性是一样的,所以获取到的也是多个元素,也就是一个数组
+//            var checkboxArr = document.getElementsByName("aihao")
+//            for (var i = 0; i< checkboxArr.length; i++){
+//                //获取被选中的复选框选项
+//                if(checkboxArr[i].checked){
+//                    alert("你选中的选项是:"+checkboxArr[i].value)
+//                }
+//            }
+
+
+        //3.根据标记的class属性来获取元素,页面中多个标记的class属性是一致的
+        //所以获取到的是多个元素,也就是一个数组
+//            var checkboxArr = document.getElementsByClassName("aihaoClass");
+//            for (var i = 0; i< checkboxArr.length; i++){
+//                //获取被选中的复选框选项
+//                if(checkboxArr[i].checked){
+//                    alert("你选中的选项是:"+checkboxArr[i].value)
+//                }
+//            }
+
+
+
+        //4.根据标记名称来获取元素,页面中有多个相同名称的标记,所以获取到的是多个元素,也就是一个数组
+        var inputArr = document.getElementsByTagName("input")
+
+        alert("数组的长度是(也就是有12个input):"+inputArr.length)
+
+        alert("你输入的名字是:"+inputArr[0].value)
+    }
+</script>-->

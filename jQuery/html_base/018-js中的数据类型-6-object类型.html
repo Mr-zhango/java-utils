@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>一</title>
+    <script type="text/javascript" src="2.js"></script>
+    <script type="text/javascript">
+
+        /**
+         * js中的引用类型object(也就是引用类型),和java中的引用类型一致,是把一组数据和功能封装成为一个整体!
+         * js中有内置的引用类型,例如Date类型,Object类型
+         * 和java中一样,js中也有继承机制和方法覆盖机制,Object类型是所有引用类型的共同基类
+         *
+         */
+        var obj = new Object();
+        pringln("obj的类型是"+typeof obj);
+
+        //和java中一样,我们输入一个对象的时候,会自动调用对象上面的toString()方法
+        pringln(obj)
+        pringln(obj.toString())
+
+
+        /**
+         * 在js中Object类型是所有引用类型的共同的基类
+         * 
+         */
+        function Dept(deptno,dname,loc) {
+            this.deptno = deptno;
+            this.dname = dname;
+            this.loc  = loc;
+            //在类中声明方法
+            this.getInfo = function () {
+
+                //在类的方法中访问类的属性,要使用this.loc格式;this不能忽略
+                this.getInfo = function () {
+                    return "Dept[deptno=" + this.deptno + "dname=" + this.dname + "dlocation=" + this.dlocation + "]";
+                }
+
+            }
+        }
+
+        //注意:js中也有继承机制,dept对象的toString()方法就是从Object中继承来的
+        var dept = new Dept("10","开发部","北京");
+        pringln(dept)//直接走了被覆盖过的toString方法
+        pringln(dept.toString())
+
+        //dept对象从Object中继承下来的constructor属性,获取对象的构造器信息
+
+        pringln(dept.constructor)   //
+
+
+        //JS是一门动态编程语言
+        //我们声明好了类,并且创建好对象之后,我们可以给这个类动态的添加属性和方法发,新添加的方法对该类的所有的对象都是有效的
+
+        //java中没有这种方式
+
+
+
+        var dept1 = new Dept(10,"研发部","北京");
+        var dept2 = new Dept(20,"销售部","上海");
+
+        //使用prototype属性给Dept类动态的添加mgr属性
+        Dept.prototype.mgr=null;
+        //使用prototype属性给Dept类动态的添加getMgr()方法
+        Dept.prototype.getMgr = function () {
+            return this.dname +"的经理是:" +this.mgr;
+        }
+
+        //设置对象的mgr属性
+        dept1.mgr = "张三";
+        dept2.mgr = "李四";
+
+        pringln("-----------------------------------")
+
+        pringln(dept1.getMgr())
+        pringln(dept2.getMgr())
+    </script>
+
+
+</head>
+<body>
+
+</body>
+</html>

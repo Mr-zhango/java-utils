@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>一</title>
+    <script type="text/javascript" src="2.js"></script>
+    <script type="text/javascript">
+        //Date对象用于处理日期和时间
+
+        var date = new Date();      //创建当前时间点的日期对象
+        pringln(date.toString())    //默认时间格式
+        pringln(date.getFullYear() + "-" + (date.getMonth()+1) + "-" + date.getDate())      //欧洲标准年月日时分秒
+
+        //把日期对象转换本地的日期格式显示
+        pringln(date.toLocaleString())
+
+
+        //把日期对象转换为当前时间点的日期对象,例如张三的生日是:1998-10-22
+        //我们只能创建当前时间点的时间对象,然后设置时间对象的时间信息
+        var dateTest = new Date();
+        dateTest.setFullYear(1994)
+        //注意啊参数可以是字符串,可以是number类型的数值,但是最好是number类型的数值
+        dateTest.setMonth(9)
+        dateTest.setDate(22)
+        pringln(dateTest.toLocaleString())
+
+
+        //Date  类中的getTime();方法可以返回距1970年1月1日之间的毫秒值(时间戳)
+        var nowTime = date.getTime()
+        pringln("当前时间的毫秒值是:"+nowTime)
+
+
+
+
+
+
+
+    </script>
+
+
+</head>
+<body>
+</body>
+</html>

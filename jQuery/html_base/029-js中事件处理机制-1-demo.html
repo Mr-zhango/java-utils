@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>一</title>
+    <script type="text/javascript" src="2.js"></script>
+    <script type="text/javascript">
+        //js编程的套路,获取标记对象,然后调用标记对象上的属性或者方法
+        function sayHello() {
+            var nameInput = document.getElementById("name")
+            alert("您好:"+nameInput.value)
+        }
+    </script>
+
+
+</head>
+<body>
+<input type="text" name="name" id="name">
+<input type="button" value="问候" onclick="sayHello()">
+
+</body>
+</html>

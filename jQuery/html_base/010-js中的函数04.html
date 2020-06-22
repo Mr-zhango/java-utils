@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>一</title>
+    <script type="text/javascript" src="/html_jQuery/2.js"></script>
+    <script type="text/javascript">
+
+        /**
+         * 校验输入框中的名字是否有限
+         */
+        function validateName(inputObj) {
+            if(inputObj.value == "admin"){
+                //alert("有效的用户名");
+                return true;
+            }else {
+                //alert("无效的用户名")
+                return false;
+            }
+        }
+    </script>
+
+</head>
+<body>
+    <!--
+        onblur:输入框标记失去焦点事件的处理句柄
+        this出现在<input>标记中,所以this就代表当前的输入框标记对象
+
+    -->
+
+    <input type="text" name="username" onblur="alert(validateName(this) ? '有效的用户名':'无效的用户名')"/>
+</body>
+</html>

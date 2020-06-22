@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>一</title>
+    <script type="text/javascript" src="2.js"></script>
+    <script type="text/javascript">
+        //dom  Document Object Module(文档对象模型)
+        //dom方式,将整个html文档象象成一个树状结构,html页面中的任何一个标记都是dom对象
+        //dom是一套规范,通过这套规范我们可以对html页面中的任何一个标记进行操作
+        //js中可以通过dom方式和html文件进行通信,也就是通过DOM来控制整个HTML
+        //所谓的标记对象,实际上就是以一个dom对象
+
+        
+        function sayHello() {
+            var nameInput = document.getElementById("name")
+            alert("您好:"+nameInput.value)
+        }
+    </script>
+
+</head>
+
+<body>
+<input type="text" name="name" id="name">
+<input type="button" value="问候" id="btn" onclick="sayHello()">
+
+
+</body>
+</html>

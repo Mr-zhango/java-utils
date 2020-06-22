@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>一</title>
+    <script type="text/javascript" src="2.js"></script>
+    <script type="text/javascript">
+        /**
+         * 由于js中变量的类型不是固定的,会随着赋值的不同,变量的类型会发生改变,所以在js中需要一种方式来随时检测变量的类型
+         * 在js中可以使用typeof()函数检测变量的类型
+         *
+         * typeof()函数的使用有两种方式
+         * 1.typeof(变量或函数)
+         * 2.typeof 变量或函数
+         * typeof()函数的返回结果肯定是一个字符串类型的数据,是如下的几种情况之一
+         *          undefined--如果这个值未定义
+         *          boolean--布尔值
+         *          String--字符串类型
+         *          number--数值类型
+         *          object--是对象或者是null
+         *          function--是一个函数
+         *
+         */
+
+        //声明number类型的变量
+        var num1 = 10,num2 = 10.8,num3 = NaN;num4 = Infinity;
+        pringln("num1的类型是:"+typeof(num1));
+        pringln("num2的类型是:"+typeof(num2));
+        pringln("num3的类型是:"+typeof num3);
+        pringln("num4的类型是:"+typeof num4);
+
+
+        /**
+         * 声明string类型的变量
+         *
+         */
+
+        var s1 = "hello",
+            s2 = "world";
+
+        pringln(typeof s1);
+        pringln(typeof s2);
+
+
+        //声明booleean类型的变量
+        var b1 = true,
+            b2 = false;
+
+        pringln(b1);
+        pringln(b2);
+
+
+        var u1;
+            u2 = undefined;
+        //声明undefined类型的变量
+        pringln("u1的类型是"+ typeof u1);
+        pringln("u2的类型是"+ typeof u2);
+
+
+        function Dept(deptno, dname, dlocation) {
+            this.deptno = deptno;   //把参数赋值给类中的属性
+            this.dname = dname;    //把参数赋值给类中的属性
+            this.dlocation = dlocation;
+
+            //在类中声明方法
+            this.getInfo = function () {
+                return "Dept[deptno=" + this.deptno + "dname=" + this.dname + "dlocation=" + this.dlocation + "]";
+            }
+        }
+
+        //调用函数
+        var dept = new Dept(10,"市场部","上海");
+
+        pringln("dept的类型是:"+typeof dept);
+
+        //使用js内置的引用类型
+        var date = new Date();
+        pringln("date的类型是:"+typeof date)
+
+
+        pringln("Dept的类型是"+typeof Dept)
+
+
+        var obj = null;
+        pringln("null的类型是"+obj);
+
+
+        //ES6中为新增加的类型
+        var syml = Symbol("hello");
+        //Uncaught TypeError: Cannot convert a Symbol value to a string
+        //pringln("syml的类型是:"+syml);
+
+        pringln("syml的类型是:" +typeof syml);
+
+
+    </script>
+
+</head>
+<body>
+
+</body>
+</html>

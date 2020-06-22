@@ -1,0 +1,83 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>jQuery子元素过滤选择器</title>
+    <meta charset="utf-8">
+   
+    <style type="text/css">
+        div{
+            background: gray;
+            width: 200px;
+            height: 100px;
+        }
+        .son{
+            background: cyan;
+            width: 180px;
+            height: 20px;
+        }
+    </style>
+
+    <script type="text/javascript" src="http://localhost:63343/jQuery/js/jquery-1.8.3.js"></script>
+    <script type="text/javascript">
+
+        //子元素过滤选择器,专门来选择子元素的方式
+        //1.选择指定元素的第n个子元素,语法:$("A :nth-child(n)")   注意: :nth-child(n)冒号前面必须有空格,这是后代选择器的用法,后面的几种方式都是这样的
+
+        //2.选择指定元素的第1个子元素,语法:$("A :first-child")
+
+        //3.选择指定元素的第最后一个子元素,语法:$("A :last-child")
+
+        //4.选择具有唯一子元素的子元素,语法:$("A :only-child")
+
+        //页面加载完成就调用
+        $(function () {
+            //属性过滤选择器,通过对标记中的属性进行过滤,选择相应的标记
+            $("#btn01").click(function () {
+                //选择class属性值为one的div元素的第二个子元素:nth-child(2)
+                $("div[class='one'] :nth-child(2)").css("background","yellow")
+            })
+
+            $("#btn02").click(function () {
+                //02选择class属性值为one的div元素的第一个子元素:first-child
+                $("div[class='one'] :first-child").css("background","yellow")
+                alert("暂停")
+                $("div[class='one'] :nth-child(1)").css("background","pink")
+            })
+
+            $("#btn03").click(function () {
+                //选择class属性值为one的div元素的最后一个子元素:last-child"
+                $("div[class='one'] :last-child").css("background","yellow")
+            })
+
+            $("#btn04").click(function () {
+                //选择class属性值为one的并且只有一个子元素的div元素中的这一个子元素
+                $("div[class='one'] :only-child").css("background","yellow")
+            })
+        })
+    </script>
+</head>
+<body>
+    <!--定义被选择对象-->
+    <div>zero</div>
+    <div class="one">one</div>
+    <div class="one">
+        two
+        <div class="son">three,第一个子元素</div>
+        <div class="son">four,第二个子元素</div>
+        <div class="son">five,第三个子元素</div>
+    </div>
+    <div class="one">
+        six
+        <div class="son">seven</div>
+    </div>
+    <div></div>
+    <span>我是span标签</span>
+    <br><br>
+    <!--定义按钮-->
+    <input type="button" id="btn01" value="选择class属性值为one的div元素的第二个子元素:nth-child(2)"/>
+    <input type="button" id="btn02" value="选择class属性值为one的div元素的第一个子元素:first-child"/>
+    <input type="button" id="btn03" value="选择class属性值为one的div元素的最后一个子元素:last-child"/>
+    <input type="button" id="btn04" value="选择class属性值为one的并且只有一个子元素的div元素中的这一个子元素"/>
+</body>
+</html>

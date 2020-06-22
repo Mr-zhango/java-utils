@@ -1,0 +1,80 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>jQuery层级选择器</title>
+    <meta charset="utf-8">
+   
+    <style type="text/css">
+        div{
+            background: gray;
+        }
+    </style>
+    <script type="text/javascript" src="http://localhost:63343/jQuery/js/jquery-1.8.3.js"></script>
+    <script type="text/javascript">
+        $(function () {
+
+            //层次选择器就会利用标记和标记之间的层次和父子兄弟关系来选择相应的标记
+            //1.选择所有的后代选择器,包括直接后代和间接后代,语法:$("A B")
+            //2.选择直接后代选择器,不包括间接后代,语法:$(" A > B")
+
+            //3.选择下一个兄弟选择器,语法:$("A + B")
+
+            //4.选择剩余兄弟选择器,但是不包括前面的兄弟,语法$("A ~B")
+
+            //5.选择所有兄弟选择器,包括前面的兄弟和后面的兄弟,使用一个函数siblings
+            $("#btn01").click(function () {
+                //选择body中的所有div子标签
+                $("body div").css("background","yellow")
+
+            })
+
+            $("#btn02").click(function () {
+                //选择body下的直接div子标签
+                $("body > div").css("background","yellow")
+            })
+
+            $("#btn03").click(function () {
+                //选择id为one的下一个兄弟div
+                $("#one + div").css("background","yellow")
+            })
+
+            $("#btn04").click(function () {
+                //选择id为two的所有后面的兄弟div
+                $("#two ~div").css("background","yellow")
+            })
+
+            $("#btn05").click(function () {
+                //选择id为two的所有兄弟div
+                $("#two").siblings("div").css("background","yellow")
+
+            })
+
+            $("#btn06").click(function () {
+                //选中div中class为son的标记
+                $("div .son").css("background","yellow")
+            })
+        })
+    </script>
+</head>
+<body>
+    <!--定义被选择对象-->
+    <div id="one">我是div01</div>
+    <div id="two">我是div02</div>
+    <div>
+        我是div03
+        <div class="son">我是div03的子div</div>
+        <div class="son">我是div03的子div</div>
+    </div>
+    <div>我是div04</div>
+    <span>我是span标签</span>
+    <br>
+    <!--定义按钮-->
+    <input type="button" id="btn01" value="选择body中的所有div子标签"/>
+    <input type="button" id="btn02" value="选择body下的直接div子标签"/>
+    <input type="button" id="btn03" value="选择id为one的下一个兄弟div"/>
+    <input type="button" id="btn04" value="选择id为two的所有后面的兄弟div"/>
+    <input type="button" id="btn05" value="选择id为two的所有兄弟div"/>
+    <input type="button" id="btn06" value="选中div中class为son的标记"/>
+</body>
+</html>

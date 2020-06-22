@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>一</title>
+    <script type="text/javascript" src="2.js"></script>
+    <script type="text/javascript">
+        //js编程的套路,获取标记对象,然后调用标记对象上的属性或者方法
+        //页面中的标记有什么样的属性,标记对象上就有什么样的属性
+        //页面标记中有什么样的操作,标记对象上面就有什么样的方法
+        //例如:按钮标记中有点击的操作,所以按钮标记对象中就有click()方法
+
+        //获取页面中的按钮标记对象
+//        var btnObj = document.getElementById("btn")
+
+        //错误的调用方式,因为,根本无法获取到btnObj对象
+
+        ///因为浏览器是自上而下加载html页面的,加载<head>的时候就会执行js中的代码,
+        //js代码要去获取页面中的标记对象,但是此时页面中的body还没加载呢,页面中根本就没有按钮标记,所以获取不到按钮标记对象喽
+
+        //因此我们可以把script放到页面最下面,或者是body里面写上在页面加载完成后执行
+        //调用点击事件的方法
+//        btnObj.onclick = function () {
+//            var nameInput = document.getElementById("name")
+//
+//            alert(nameInput.value+":您好")
+//        }
+    </script>
+
+
+</head>
+<body>
+<input type="text" name="name" id="name">
+<input type="button" value="问候" id="btn">
+
+</body>
+</html>
+
+<script>
+
+    var btnObj = document.getElementById("btn")
+    btnObj.onclick = function () {
+                var nameInput = document.getElementById("name")
+
+                alert(nameInput.value+":您好")
+            }
+</script>

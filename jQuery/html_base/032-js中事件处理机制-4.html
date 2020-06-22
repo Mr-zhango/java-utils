@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>一</title>
+    <script type="text/javascript" src="2.js"></script>
+    <script type="text/javascript">
+
+        //window对象的onload事件处理句柄指定回调函数
+        //window对象的onload方法,浏览器页面加载完成事件的处理句柄,和body中的onload功能是一样的
+
+        window.onload = function () {
+            alert("你看到我的时候,页面已经加载完成了")
+            //获取元素
+            var btnObj = document.getElementById("btn")
+            //获取值
+            var nameInput = document.getElementById("name")
+            //添加点击事件
+            btnObj.onclick = function () {
+                alert("您好:"+nameInput.value)
+            }
+
+        }
+    </script>
+
+</head>
+<!--body标记的onload:浏览器加载完成事件的处理句柄-->
+
+<body>
+<input type="text" name="name" id="name">
+<input type="button" value="问候" id="btn">
+
+</body>
+</html>

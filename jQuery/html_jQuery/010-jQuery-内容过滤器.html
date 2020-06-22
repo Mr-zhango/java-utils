@@ -1,0 +1,70 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>jQuery内容过滤器</title>
+    <meta charset="utf-8">
+    <script type="text/javascript" src="http://localhost:63343/jQuery/js/jquery-1.8.3.js"></script>
+    <script type="text/javascript">
+
+        $(function () {
+            //内容过滤选择器,通过对开始标记和结束标记之间的文本进行过滤,选择相应的元素
+            //1.选择文本内容中包含指定内容的元素,语法$("A:contains")
+
+            //2.选择文本内容为空的所有div元素,语法$("A:empty")
+
+            //3.选择包含指定id值得元素,语法:$("A:has(#id值)")
+
+            //4.选择包含所有包含指定class的元素,语法:$("A:has(.class)")
+
+            $("#btn01").click(function () {
+                //01选择文本内容中包含所有字母e的div元素
+                $("div:contains('e')").css("background","yellow")
+            })
+
+            $("#btn02").click(function () {
+                //02选择文本内容为空的所有div元素
+
+                //jQuery对象上面的html()方法,相当于DOM中的innerHTML属性,出现的标记会被浏览器当做标记来执行
+                //jQuery对象上面的text()方法,相当于DOM中的innerText/textContent属性,出现的标记会被浏览器当做纯文本来解析,
+                $("div:empty").html("<font color='red'>这是被选中的文本为空的元素--jQuery动态设置的文本内容</font>")
+            })
+
+            $("#btn03").click(function () {
+                //03div所有元素里匹配包含id为three的元素的元素
+                $("div:has(#three)").css("background","yellow")
+            })
+
+            $("#btn04").click(function () {
+                //04div所有元素里匹配包含类为son的元素的元素
+                $("div:has(.son)").css("background","yellow")
+            })
+
+
+
+
+
+
+        })
+    </script>
+</head>
+<body>
+    <!--定义被选择对象-->
+    <div id="one">zero:0</div>
+    <div id="two" class="c02">one:1</div>
+    <div>
+        two:2
+        <div class="son" id="three">three:3</div>
+        <div class="son">four:4</div>
+    </div>
+    <div>five</div>
+    <div></div>
+    <span>我是span标签</span>
+    <br><br>
+    <!--定义操作按钮-->
+    <input type="button" id="btn01" value="01选择文本内容包含字母e的所有div元素"/>
+    <input type="button" id="btn02" value="02选择文本内容为空的所有div元素"/>
+    <input type="button" id="btn03" value="03div所有元素里匹配包含id为three的元素的元素"/>
+    <input type="button" id="btn04" value="04div所有元素里匹配包含类为son的元素的元素"/>
+</body>
+</html>

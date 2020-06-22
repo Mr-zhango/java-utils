@@ -1,0 +1,45 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>001-JQuery</title>
+    <meta charset="utf-8">
+    <!--
+        为了要使用jQuery我们需要导入jQuery的js文件
+
+    -->
+    <script type="text/javascript" src="http://localhost:63343/jQuery/js/jquery-1.8.3.js"></script>
+    <script type="text/javascript">
+
+
+
+
+
+        /**
+         *  ready(function () {
+            alert("欢迎进入jQuery精彩的世界");
+            });
+         这个是在jQuery对象的ready()方法中指定回调函数function(){}
+
+         */
+
+
+        //$(document)获取document 对象并且将其转换为jQuery对象
+        // $(document).ready() 然后调用jQuery对象的ready()方法
+        //jQuery对象的ready()方法中指定回调函数function(){}
+        //jQuery对象的ready()方法在浏览器页面加载完成之后会被自动回调,类似于window.onload = function(){}
+        $(document).ready(function () {
+            alert("欢迎进入jQuery精彩的世界");
+        });
+    </script>
+    <style type="text/css">
+        div{
+            background: red;
+            width: 300px;
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+</body>
+</html>

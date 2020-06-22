@@ -1,0 +1,120 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>jQuery基本过滤选择器</title>
+    <meta charset="utf-8">
+   
+    <style type="text/css">
+        div{
+            background: gray;
+        }
+    </style>
+
+    <script type="text/javascript" src="http://localhost:63343/jQuery/js/jquery-1.8.3.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            //把jQuery对象转化为DOM对象,然后调用其ready方法,在页面加载完毕后执行
+
+
+            //基本过滤选择器(一共十个)
+            //1.选择第一个选择器,语法$("A:first")
+
+            //2.选择最后一个选择器,语法$("A:last")
+
+            //3.排除指定id值得元素,语法$("A:not(#id值)")
+
+            //4.排除指定class值得元素,语法$("A:not(.calss值)")
+
+            //5.选择索引号为奇数的元素,标记的索引号从0开始,语法$("A:odd")
+
+            //6.选择索引号为偶数的元素,标记的索引号从0开始,语法$("A:even")
+
+            //7.选择索引号等于3的元素,语法$("A:eq(3)")
+
+            //8.选择索引号小于指定值3的元素,语法$("A:lt(3)")
+
+            //9.选择索引号大于等于指定值3的元素,语法$("A:lt(3)")
+
+            //10.选择所有表格标记(<h1>-<h6>),语法:$(:header)
+
+            $("#btn01").click(function () {
+                //01选择第一个div
+                $("div:first").css("background","red")
+            })
+
+            $("#btn02").click(function () {
+                //02选择第一个div
+                $("div:last").css("background","red")
+            })
+
+            $("#btn03").click(function () {
+                //03选择id值不是one的div
+                $("div:not(#one)").css("background","red")
+            })
+
+            $("#btn04").click(function () {
+                //04选择class不包含c02的div
+                $("div:not(.c02)").css("background","red")
+            })
+
+            $("#btn05").click(function () {
+                //05选择索引号为奇数的div元素
+                $("div:odd").css("background","red")
+            })
+            $("#btn06").click(function () {
+                //06选择索引号为偶数的div元素
+                $("div:even").css("background","red")
+            })
+
+            $("#btn07").click(function () {
+                //07选择索引号等于3的div元素
+                $("div:eq(3)").css("background","red")
+            })
+
+            $("#btn08").click(function () {
+                //08选择索引号小于3的div元素
+                $("div:lt(3)").css("background","red")
+            })
+
+            $("#btn09").click(function () {
+                //09选择索引号大于3的div元素
+                //$("div:gt(3)").css("background","red")
+                $("div:gt(3),div:eq(3)").css("background","red")
+            })
+
+            $("#btn10").click(function () {
+                //10选择所有标题元素
+                //$("div:gt(3)").css("background","red")
+                $(":header").css("background","red")
+            })
+        })
+    </script>
+</head>
+<body>
+    <!--定义被选择对象-->
+    <h2>以下是div</h2>
+    <div id="one">我的序号是0</div>
+    <div id="two" class="c02">我的序号是1</div>
+    <div>
+        我的序号是2
+        <div class="son">我的序号是3</div>
+        <div class="son">我的序号是4</div>
+    </div>
+    <div>我的序号是5</div>
+    <h3>以下是span</h3>
+    <span>我是span标签</span>
+    <br><br>
+    <!--定义按钮-->
+    <input type="button" id="btn01" value="01选择第一个div"/>
+    <input type="button" id="btn02" value="02选择最后一个div"/>
+    <input type="button" id="btn03" value="03选择id值不是one的div"/>
+    <input type="button" id="btn04" value="04选择class不包含c02的div"/>
+    <input type="button" id="btn05" value="05选择索引号为奇数的div元素"/>
+    <input type="button" id="btn06" value="06选择索引号为偶数的div元素"/>
+    <input type="button" id="btn07" value="07选择索引号等于3的div元素"/>
+    <input type="button" id="btn08" value="08选择索引号小于3的div元素"/>
+    <input type="button" id="btn09" value="09选择索引号大于3的div元素"/>
+    <input type="button" id="btn10" value="10选择所有标题元素"/>
+</body>
+</html>
