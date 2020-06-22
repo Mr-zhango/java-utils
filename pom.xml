@@ -14,6 +14,7 @@
         <module>spring-demo-solrutil</module>
         <module>spring-demo-SpringBoot</module>
         <module>rabbitmq-demo</module>
+        <module>SpringDataRedisDemo</module>
     </modules>
 
     <parent>
