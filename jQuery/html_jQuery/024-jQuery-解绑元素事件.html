@@ -1,0 +1,58 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>jQuery解绑元素事件</title>
+    <meta charset="utf-8">
+   
+    <style type="text/css">
+        div{
+            background: red;
+            width: 500px;
+            height: 200px;
+        }
+    </style>
+
+    <script type="text/javascript" src="http://localhost:63343/jQuery/js/jquery-1.8.3.js"></script>
+    <script type="text/javascript">
+        //给标记解绑定事件,可以调用jQuery对象上面的unbind()方法
+
+
+        $(function () {
+            var $div = $("div");
+            //给div绑定鼠标进入事件
+            $div.bind("mouseover",function () {
+                $div.html("<font color='blue'>鼠标进入事件</font>")
+            })
+
+            $div.bind("mouseout",function () {
+                $div.text("<font color='yellow'>鼠标离开事件</font>")
+            })
+
+
+            $("#unbindone").click(function () {
+                $div.unbind("mouseover");
+            })
+
+            $("#unbindall").click(function () {
+                $div.unbind()
+            })
+
+        })
+
+
+
+
+        //两种方式:
+        //1.unbind("mouseover)方法有参数的时候,是解绑指定的事件
+        //2.unbind()没有参数的时候,是解绑所有的事件
+
+
+    </script>
+</head>
+    <body>
+        <div></div>
+        <button id="unbindone">解绑div上的鼠标移进事件</button>
+        <button id="unbindall">解绑div上的所有事件</button>
+    </body>
+</html>

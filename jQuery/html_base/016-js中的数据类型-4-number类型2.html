@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>一</title>
+    <script type="text/javascript" src="2.js"></script>
+    <script type="text/javascript">
+        //在JS中如何把非数值类型的数据自动转换成数值类型，有两种方式
+        //1.使用Number()函数
+        //2.使用parseInt()函数/parseFloat()函数
+
+        /**
+         * 1.使用Nubmer()函数
+         * 2.使用parseInt()/parseFloat()函数
+         *
+         *
+         * 使用Number()函数可以将非数值类型的数据自动转换成数组类型的数据,规则如下
+         *       Number()函数可以将任何类型的数据转化为number类型,转换规则如下:
+         *       1:如果是Boolean类型值,true和false将被分别替换成1和0
+         *       2:如果是数字值,只是简单是传入和返回
+         *       3.如果是null,返回0
+         *       4.如果是undefined,返回NaN
+         *       5.如果是字符串,遵循以下规则
+         *           ->如果字符串中只包含数字,则将其转化为十进制的数值,即"1"会变成1,"123"变为123,而"0112"会变为112,前面没有意义的0将会被去掉
+         *           ->如果字符串中包含有效的浮点格式,如"1.1",则将其转化为对应的浮点数(同样也会忽略前导的0)
+         *           ->如果字符串中包含有效的十六进制格式,例如"0xf",则将其转化为相同大小的十进制整数
+         *           ->如果字符串是空的"" ,则将其转化为0
+         *           ->如果字符串还包含了上述格式以外的字符,则将其转化为NaN
+         *
+         */
+
+        pringln("true被Number()转换的结果是:" + Number(true));      //1
+
+        pringln("false被Number()转换的结果是:" + Number(false));    //0
+
+        pringln("null被Number()转换的结果是:" + Number(null));      //0
+
+        pringln("undefined被Number()转换的结果是:" + Number(undefined));    //NaN
+
+        pringln("100被Number()转换的结果是:" + Number(100));         //100
+
+        pringln("010被Number()转换的结果是:" + Number(010));        //8
+
+        pringln("0x10被Number()转换的结果是:" + Number(0x10));      //16
+
+
+        //由于number的转化规则十分复杂,所以我们使用parseInt()和parseFloat()进行转化
+        //Number()函数可以将任何类型的数据转化为number类型,但是,parseInt()和parseFloat()只能将字符串类型的数据转化为number类型
+        //parseInt()函数转化的结果是没有小数的,
+        //parseFloat()函数的转化结果是有小数的
+
+        /**
+         * parseInt()函数在转换字符串的时候,更多的是看其是否符合数值模式,他会忽略字符串前面的空格,直至找到第一个非空格字符
+         * 1.如果第一个字符串不是数字字符或者负号,parseInt()会返回NaN;也就是说,用parseInt()转换空字符串会返回NaN
+         * 2.如果第一个字符串是数字字符,parsInt()会继续解析第二个字符,直到解析完所有的后续字符或者遇到了非数字字符.
+         *   例如:"1234blue"会被转换成1234,"22.5"会被转换成22,因为小数点并不是有效的数字字符.
+         *        如果字符串中的第一个字符是数字字符,parseInt()也能够识别出各种整数格式(即十进制,八进制,十六进制)
+         */
+
+        pringln("      100Hello被parseInt()转换的结果是:" + parseInt("      100Hello"))
+
+        pringln("           -100Hello被parseInt()转化的结果是:" + parseInt("      -100Hello"))
+
+        pringln("           22.3被parseInt()转化的结果是:" + parseInt("           22.3"))
+
+        pringln("10被当做10进制格式的字符串进行转化,parseInt()转化的结果是:" + parseInt("10"))
+
+        pringln("010被当做8进制格式的字符串进行转化,parseInt()转化的结果是:" + parseInt("010"))
+
+        pringln("0x10被当做16进制格式的字符串进行转化,parseInt()转化的结果是:" + parseInt("0x10"))
+
+
+        pringln("10被当做2进制格式的字符串来解析" + parseInt("10", 2))
+        pringln("10被当做2进制格式的字符串来解析" + parseInt("10", "2"))
+        pringln("10被当做8进制格式的字符串来解析" + parseInt("10", 8))
+        pringln("10被当做16进制格式的字符串来解析" + parseInt("10", 16))
+
+
+        /**
+         * parseFloat()转换的结果是带小数的,转换的规则如下:
+         *       与parseInt()函数类似,parseFloat()也是从第一个字符(位置0)开始解析每个字符.而且也是一直解析到字符串末尾
+         *       或者遇到一个无效的浮点数字字符为止.也就是说,字符串中的第一个小数点是有效的,而第二个小数点就是无效的了
+         *       因此它后面的字符串将被忽略,例如22.45.36将会被转换为22.45
+         *       parseFloat()与parseInt()的第二个区别在于parseFloat()始终都会忽略前导的0.由于parseFloat()只能解析十进制,因此他没有
+         *       使用第二个参数指定基数的方法
+         *
+         */
+
+        pringln("10.36.36被parseFloat()转换的结果是" + parseFloat("10.36.36"))
+
+        pringln("10被parseFloat()转换的结果是" + parseFloat("10"))
+
+        pringln("00010被parseFloat()转换的结果是" + parseFloat("00010"))//parseFloat()始终都会忽略前导的0
+
+        pringln("0x10被parseFloat()转换的结果是" + parseFloat("0x10"))//只能解析出0
+
+    </script>
+
+
+</head>
+<body>
+
+</body>
+</html>

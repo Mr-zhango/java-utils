@@ -1,0 +1,95 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>jQuery可见性过滤器</title>
+    <meta charset="utf-8">
+   
+    <style type="text/css">
+        div{
+            background: red;
+            width: 200px;
+            height: 100px;;
+        }
+        .other{
+            background: cyan;
+            width: 180px;
+            height: 20px;
+            display: none;
+        }
+    </style>
+
+
+    <script type="text/javascript" src="http://localhost:63343/jQuery/js/jquery-1.8.3.js"></script>
+    <script type="text/javascript">
+        //可见性过滤器,通过标记是否可见来选择相应的标记
+        //设置标记是否可见有两种方式
+        //1.设置CSS属性:display:none;
+        //2.隐藏文本域:
+
+        //01:选择所有的可见的标记,语法:$("A:visible")
+        //02:选择所有的可见的标记,语法:$("A:hidden")
+        //03:使用for循环对jQuery对象进行遍历
+        //04:使用jQuery对象上的each()方法,遍历jQuery对象
+
+        //页面加载完成就调用
+        $(function () {
+            $("#btn01").click(function () {
+                //01选择所有可见div
+                $("div:visible").text("这是jQuery动态设置的文本")
+            })
+
+            $("#btn02").click(function () {
+                //02选择所有div中不可见的元素,并且让其显示3s时间
+                $("div:hidden").show(3000);
+            })
+
+            $("#btn03").click(function () {
+                //03选择所有隐藏域文本框并显示其value值(for遍历)
+
+                var $inputs = $("input:hidden");
+                //页面中有三个隐藏文本域,因此jQuery对象的数组中有三个元素,jQuery对象实际上就是一个数组对象
+                for (var i = 0; i <$inputs.length;i++) {
+                    //取出DOM对象,然后弹出
+                    alert($inputs[i].value +"--"+$($inputs[i]).val())
+                }
+            })
+
+            $("#btn04").click(function () {
+                //04选择所有隐藏域文本框并显示其value值(foreach()函数遍历)
+                var $inputs = $("input:hidden");
+                //指定回调函数,each()方法的回调函数需要两个参数
+                //index:是数组中的索引
+                //domObj:是数组中的DOM对象
+                $inputs.each(function (index,domObj) {
+                    alert("第" +index+"个元素的值是"+domObj.value)
+                })
+            })
+        })
+    </script>
+</head>
+<body>
+    <!--定义被选择对象-->
+    <!--定义隐藏域文本框-->
+    <input type="hidden" value="v01"/>
+    <input type="hidden" value="v02"/>
+    <input type="hidden" value="v03"/>
+    <!--定义块-->
+    <div id="one">zero</div>
+    <div id="two" class="c02">one</div>
+    <div>
+        two
+        <div class="other">three</div>
+        <div id="son" class="other">four</div>
+    </div>
+    <div class="other">five</div>
+    <div></div>
+    <span>我是span标签</span>
+    <br>
+    <!--定义按钮-->
+    <input type="button" id="btn01" value="选择所有可见div"/>
+    <input type="button" id="btn02" value="选择所有div中不可见的元素"/>
+    <input type="button" id="btn03" value="选择所有隐藏域文本框并显示其value值(for遍历)"/>
+    <input type="button" id="btn04" value="选择所有隐藏域文本框并显示其value值(foreach()函数遍历)"/>
+</body>
+</html>

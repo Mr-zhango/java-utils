@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>一</title>
+    <script type="text/javascript" src="2.js"></script>
+    <script type="text/javascript">
+        /**
+         * js中的boolean类型只有两个有效的取值,true/false,用在逻辑判断语句中(也就是if语句)
+         *
+         */
+
+        /**
+         *
+         *
+
+
+
+         var b1 = true,
+         b2 = false;
+         if(b1 ==true){
+            alert("ok");
+        }
+
+         if(b1){
+            alert("ok")
+
+        }
+
+         if (!b2){
+            alert("ok");
+        }else{
+            alert("Not OK")
+        }
+
+
+         *
+         **/
+
+
+
+
+
+        /**
+         * 在java语句中if语句的条件是一个boolean类型的表达式或变量
+         * 在js中,if语句的条件可以是任何类型的表达式或者变量
+         *
+         */
+
+        /**
+         * 在js中会自动的把非boolean类型的值转换为boolean类型
+         * @type {string}
+         */
+
+        var str = "hello";
+        if(str){
+            alert("某问题啊,string类型也能当做字符串来判断啊.而且是true啊!!!")
+        }
+
+        /**
+         * 实际运行过程解析
+         */
+        var string = "Hello";
+        var res = Boolean("Hello");
+        alert("res的类型是:"+res);
+        if(string){
+            alert("某问题啊,string类型也能当做字符串来判断啊.而且是true啊!!!")
+        }
+
+
+        //Boolean函数的转换规则
+        //1.对于string类型:非空的字符串被转化为true;空字符""串被转换为false;
+        //2.对于number类型:非0的数字和Infinity被转化为true;  0和NaN(Not a Number)被转化为false
+        //3.对于boolean类型:true被转化为true;false被转化为false
+        //4.对于undefined类型:转化为false
+        //5.对于object类型:非空的对象被转换为true,null被转化为false
+
+        pringln("非空的字符串'hello'被Boolean()转化的结果是:"+Boolean("Hello"));
+        pringln("空的字符串''被Boolean()转化的结果是:"+Boolean(""));
+        pringln("空的字符串'    '被Boolean()转化的结果是:"+Boolean("    "));
+
+
+        pringln("0被Boolean()转化的结果是:"+Boolean(0));
+        pringln("100被Boolean()转化的结果是:"+Boolean(100));
+        pringln("Infinity被Boolean()转化的结果是:"+Boolean(Infinity));
+        pringln("NaN被Boolean()转化的结果是:"+Boolean(NaN));
+
+        pringln("undefined被Boolean()转化的结果是:"+Boolean(undefined));
+
+        var obj1 = new Object();
+        pringln("非空的对象obj1被Boolean()转换的结果是:"+Boolean(obj1));
+
+        pringln("空的对象obj1被Boolean()转换的结果是:"+Boolean(null));
+
+
+
+    </script>
+
+</head>
+<body>
+
+</body>
+</html>

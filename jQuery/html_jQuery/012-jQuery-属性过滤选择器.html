@@ -1,0 +1,105 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>jQuery过滤选择器</title>
+    <meta charset="utf-8">
+
+    <style type="text/css">
+        div {
+            background: gray;
+            width: 200px;
+            height: 100px;
+        }
+
+        .son {
+            background: cyan;
+            width: 180px;
+            height: 20px;
+        }
+    </style>
+    <script type="text/javascript" src="http://localhost:63343/jQuery/js/jquery-1.8.3.js"></script>
+    <script type="text/javascript">
+        //页面加载完成就调用
+        $(function () {
+            //属性过滤选择器,通过对标记中的属性进行过滤,选择相应的标记
+
+            //1.选择包含指定属性的元素,语法:$("A[指定的属性]")
+
+            //2.选择属性值为指定值得元素,语法:$("A[属性='指定值']")
+
+            //3.选择属性值!=指定值得元素,语法:$("A[属性!='指定值']")
+
+            //4.选择属性值以指定值开头的元素,语法:$("A[属性^='指定值']")
+
+            //5.选择属性值以指定值结尾的元素,语法:$("A[属性$='指定值']")
+
+            //6.选择属性包含指定值的元素,语法:$("A[属性*='指定值']")
+            $("#btn01").click(function () {
+                //01选择包含title属性的div元素
+                $("div[title]").css("background", "yellow")
+
+            })
+
+            $("#btn02").click(function () {
+                //02选择title属性值为test的div元素
+                $("div[title='test']").css("background", "yellow")
+
+                //使用这种方式我们可以选择页面中的复选框
+                //var $checkboxs = $("input[type='checkbox']");
+            })
+
+            $("#btn03").click(function () {
+
+                //03选择title属性值不为test的div元素
+                $("div[title!='test']").css("background", "yellow")
+            })
+
+            $("#btn04").click(function () {
+                //04选择title属性以'te'开头的div元素
+                $("div[title^='te']").css("background", "yellow")
+            })
+
+            $("#btn05").click(function () {
+                //04选择title属性以'te'开头的div元素
+                $("div[title$='st']").css("background", "yellow")
+            })
+
+            $("#btn06").click(function () {
+                //06选择title属性包含'es'的div元素
+                $("div[title*='es']").css("background", "yellow")
+            })
+
+            $("#btn07").click(function () {
+                //07选择title属性包含'es'的并且含有id属性的div元素
+
+                //选择div中title属性包含'es'的并且含有id属性的元素
+                $("div[title*='es'][id]").css("background", "yellow")
+            })
+        })
+    </script>
+
+</head>
+<body>
+<!--定义被选择对象-->
+<div id="one" title="test">zero</div>
+<div class="c02" title="myTest">one</div>
+<div>
+    two
+    <div id="three" class="son">three</div>
+    <div title="test" class="son">four</div>
+</div>
+<div title="testCase">five</div>
+<div></div>
+<span>我是span标签</span>
+<br><br>
+<!--定义按钮-->
+<input type="button" id="btn01" value="01选择包含title属性的div元素"/>
+<input type="button" id="btn02" value="02选择title属性值为test的div元素"/>
+<input type="button" id="btn03" value="03选择title属性值不为test的div元素"/>
+<input type="button" id="btn04" value="04选择title属性以'te'开头的div元素"/>
+<input type="button" id="btn05" value="05选择title属性以'st'结尾的div元素"/>
+<input type="button" id="btn06" value="06选择title属性包含'es'的div元素"/>
+<input type="button" id="btn07" value="07选择title属性包含'es'的并且含有id属性的div元素"/>
+</body>
+</html>

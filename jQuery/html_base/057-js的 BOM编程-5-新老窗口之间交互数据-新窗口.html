@@ -1,0 +1,51 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>一</title>
+    <style type="text/css">
+
+    </style>
+    <script type="text/javascript" src="2.js"></script>
+    <script type="text/javascript">
+        //在新窗口中要关闭老窗口,我们需要在心窗口中获取到老窗口的window对象
+        //新窗口中有一个内置的opener对象,就是老窗口的window对象
+        function closeOldWindow() {
+            opener.close();
+        }
+        
+        function synaValue(nameInput) {
+            opener.document.oldForm.oldName.value = nameInput.value;
+        }
+
+        //我们用浏览器在不同的页面直接进行跳转,这个跳转的过程被记录到window对象的
+        //history属性中,我们可以使用history属性中的方法将浏览器回退到上级页面
+
+        function test() {
+            //window.history.back();  //回退到上级页面
+            window.history.go(-1);  //回退到上级页面
+        }
+    </script>
+
+</head>
+
+<body>
+
+    <h1>这是新窗口</h1>
+    <hr>
+
+    <input type="button" value="关闭老窗口" onclick="closeOldWindow()">
+
+    <hr>
+    <!--
+        当新窗口中输入框的值改变并且失去焦点的时候,自动把数据同步到老窗口
+    -->
+    <form name="newForm">
+        <input type="text" name="newName" onchange="synaValue(this)">
+    </form>
+
+
+    <hr>
+    <input type="button" value="回退" onclick="test()">
+</body>
+</html>

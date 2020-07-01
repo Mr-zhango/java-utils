@@ -1,0 +1,76 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>一</title>
+    <style type="text/css">
+
+    </style>
+    <script type="text/javascript" src="2.js"></script>
+    <script type="text/javascript">
+        /**
+         * 在js中使用自定义引用类型的过程
+         * 1.声明一个类
+         * 2.使用new来创建对象
+         * 3.调用对象上面的属性/方法
+         */
+        /**
+         *
+         * @param id
+         * @param name
+         * @param password
+         * @constructor
+
+        function User(id,name,password) {
+            this.id = id;
+            this.name = name;
+            this.password = password;
+        }
+
+        var user = new User(1,"admin",123456);
+
+        //访问对象属性或者方法的不同方式
+        //1.使用对象.方式
+        pringln(user.id + user.name + user.password)
+        //2.使用with语句
+        with(user){
+            pringln(id + ","+name +"," + password)
+        }
+
+        //3.方式三使用[]的方式
+        pringln(user["id"] +","+ user["name"] +","+  user["password"] )
+
+         */
+        //JSON:javascript对象标记
+        //1.可以创建轻量级的对象
+        //2.可以简化自定义引用类型的使用过程,把第一步和第二步合二为一
+
+        /**
+         * JSOn对象的格式
+         * var 变量 = {
+         *      属性:属性值,
+         *      属性:属性值,
+         *      属性:属性值
+         *  }
+         *  属性追可以是基本类型也可以是引用类型(数组和JSON都是引用类型)
+         *
+         */
+
+        var user = {
+            id:1,
+            name:'admin',
+            password:'12345'
+        }
+
+
+
+
+
+    </script>
+
+</head>
+
+<body>
+
+</body>
+</html>

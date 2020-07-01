@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>一</title>
+    <script type="text/javascript" src="2.js"></script>
+    <script type="text/javascript">
+        /**
+         * 在js中不区分整形和浮点型,都是number类型
+         * 在java中10/4 = 2;
+         * 因为在java中区分整形和浮点型数据,整形数据之间相互进行操作,结果只能是整形数据,'
+         * 在js中不区分整形和浮点型所以
+         * 10/4=2.5;
+         */
+        pringln("10/4=" + 10/4);
+
+        pringln("10/1.0="+10/1.0);
+
+        pringln("10/0.1="+10/0.1);
+
+        pringln("10/0.0="+10/0.0);
+
+        pringln("10/0="+10/0);
+        //NaN
+        pringln("0/0="+0/0);
+        /**
+         * 注意:NaN和任何数值都不相等,包括他自己,因为他就不是一个数
+         *
+         */
+        pringln("NaN == NaN ?" + (NaN == NaN));
+
+        pringln("Infinity == Infinity ?" + (Infinity == Infinity));
+
+        /**
+         * 在js中有一个内置的isNaN()函数,判断参数是否是一个NaN
+         * 该函数会尝试着将参数转化为一个数值类型的变量,如果能够得到有效的数值,一个有效的数值不是NaN,所以该函数返回false
+         * 如果转换的结果不是有效的数值,也就是NaN,则该函数返回true
+         */
+
+        /**
+        var str1 = "100"
+            str2 = NaN;
+
+        //分析过程"100"可以被转换为一个有效的数值,结果是100,则isNaN()返回false
+        if(isNaN(str1)){
+            alert("不是有效的数值格式")
+        }else {
+            alert("是有效的数值格式")
+        }
+
+        if (isNaN(str2)){
+            alert("不是有效的数值格式")
+        }else {
+            alert("是有效的数值格式")
+        }
+
+         */
+
+
+        /**
+         * 判断用户输入的年龄是否是有效的年龄
+         * @param age用户输入的年龄
+         */
+        function checkAge(age){
+
+            //获取span标记对象,开始标记和结束标记之间的内容是标记的innerHTML属性
+            var spanObj = document.getElementById("info");
+            //用户在输入框中输入的值永远都是String类型的!,例如用户输入的是25,则实际数据是"25"
+            //alert(age +"的类型是" +typeof age )
+            //判断用户输入的数据是否是数值格式的字符串
+            if(isNaN(age)){
+                spanObj.innerHTML = "<font color=\"red\" >不是有效的数值格式</font> ";
+                //alert("不是有效的数值格式")
+            }else {
+                //alert("是有效的数值格式")
+                //age是String类型的但是可以和数值类型进行比较说明在JS中会自动的把String类型转换为number类型
+                if(age >=20 && age <=30){
+                    spanObj.innerHTML = "<font color=\"green\" >是有效的年龄格式</font> "
+                }else{
+                    spanObj.innerHTML = "<font color=\"red\" >不是有效的年龄格式</font> "
+                }
+            }
+        }
+        function clearInfo() {
+            var spanObj = document.getElementById("info");
+            spanObj.innerHTML = "<font color=\"red\" ></font> ";
+        }
+    </script>
+
+
+</head>
+<body>
+
+    请输有效的年龄,20-30
+    <input type="text" name="userAge" onblur="checkAge(this.value)" onfocus="clearInfo()" />
+    <span id="info"></span>
+    <!--onfocus:输入标记获取焦点事件的处理句柄,功能和onclick是一样的-->
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>jQuery克隆节点</title>
+    <meta charset="utf-8">
+    
+    <style type="text/css">
+        #one{
+            background: red;
+            width: 200px;
+            height: 200px;
+        }
+        #two{
+            background: green;
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+
+    <script type="text/javascript" src="http://localhost:63343/jQuery/js/jquery-1.8.3.js"></script>
+    <script type="text/javascript">
+        //页面加载完成就调用
+        $(function () {
+            //
+
+            //所谓的克隆节点就是复制节点,新的节点信息和原来的节点信息是一样的,使用的是jQuery对象上的clone()方法
+
+            //1.clone()方法有两个使用形式
+            //2.clone(true)方法有参数的时候表示,不仅仅要克隆节点,而且还要克隆节点的处理函数
+
+            $("#emptyBtn").click(function () {
+                //清空
+                $("#one").empty();
+            })
+
+            $("#cloneBtn01").click(function () {
+               var $obj = $("#two").clone();//克隆节点,
+
+                $("#one").append($obj);//把新克隆的节点追加到原有的节点之上
+
+
+
+            })
+
+            $("#cloneBtn02").click(function () {
+                var $btnObj = $("#emptyBtn").clone(true);//克隆节点,
+
+                $btnObj.insertAfter("#cloneBtn02");//在这个节点之后插入这个按钮
+
+                //insertAfter两个节点之间是兄弟关系
+
+                //append两个节点支架值父子关系
+
+            })
+
+        })
+    </script>
+</head>
+<body>
+    <input type="button" id="emptyBtn" value="清空first"/>
+    <input type="button" id="cloneBtn01" value="克隆first"/>
+    <input type="button" id="cloneBtn02" value="克隆'清空first按钮'"/>
+    <br><br>
+    <div id="one">
+        first
+        <div id="two">second</div>
+    </div>
+</body>
+</html>

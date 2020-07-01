@@ -1,0 +1,86 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>一</title>
+    <script type="text/javascript" src="2.js"></script>
+    <script type="text/javascript">
+        //获取文本框中的值,并且将其添加到表格中
+        function add() {
+            var value = document.getElementById("newvalue").value;
+            //思路:我们要操作表格,向表格中添加行
+            //插入新行的时候,需要一个新行的索引,若index等于表中的行数,则新行则将被附加到表的末尾
+            //所以我们需要获取到表格中的总行数
+
+
+            //获取表格中的总行数,表格中有多个tr,所以表格对象中应该有多个行对象的数组rows
+
+            var tableObj = document.getElementById("table");    //获取表格对象
+
+            var rows = tableObj.rows.length;                   //获取表格中的总行数
+
+            var tableRowObj = tableObj.insertRow(rows);        //向表格的末尾添加新行
+
+            var nowTiime = new Date().getTime();
+
+            tableRowObj.id = nowTiime;                             //用时间戳当做行对象的id属性
+
+
+            //insertRow() 在表格中插入一个新行。
+            var tableCell1 = tableRowObj.insertCell(0);
+            var tableCell2 = tableRowObj.insertCell(1);
+
+            //设置表格中的列中的内容
+            tableCell1.innerHTML = value;
+            tableCell2.innerHTML = "<input type='button' value='删除' onclick='deleteName(" + nowTiime + ")'>"
+
+
+        }
+
+        //删除方法就是从表格中删除行
+        //deleteRow() 方法用于从表格删除指定位置(索引)的行。
+        //关键获取需要删除行的索引
+        //行对象上有个rowIndex方法,就是改行在表格中的索引
+
+        //设置或返回表格的 id。
+        //在添加新行的时候,我们可以给新添加的行设置id属性,在删除的时候通过id属性来获取行对象
+        function deleteName(rowId) {
+            //alert(111)
+            alert("要删除的行id是:" + rowId);
+            var tableRowObj = document.getElementById(rowId);   //根据id属性来获取行对象
+            var index = tableRowObj.rowIndex;                   //获取行对象的索引
+            var tableObj = document.getElementById("table");    //获取表格对象
+
+            //获取要删除的用户的名字
+            //行对象上面应该有个列数组,我们要删除的列就是这个数组的第0号索引的元素
+
+            var name = tableRowObj.cells[0].innerHTML;
+            if(window.confirm("你确定要删除"+name+"吗?")){
+                tableObj.deleteRow(index)                           //根据行号删除行
+            }
+        }
+
+        //获取键盘值,如果是回车键就调用add()方法
+        function getKeyCode() {
+            var keyCode = event.keyCode;
+            if(keyCode == 13){
+                add();
+            }
+        }
+    </script>
+
+</head>
+
+<body onkeydown="getKeyCode()">
+<input type="text" id="newvalue">
+<input type="button" value="添加" onclick="add()">
+<hr>
+
+<table border="1" id="table">
+    <tr>
+        <td width="100">姓名</td>
+        <td width="100">操作</td>
+    </tr>
+</table>
+</body>
+</html>

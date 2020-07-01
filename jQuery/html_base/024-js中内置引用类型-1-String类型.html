@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>一</title>
+    <script type="text/javascript" src="2.js"></script>
+    <script type="text/javascript">
+        /**
+         * 在java中数组是一种容器,可以用来保存一组相同类型的,数目固定的数据,因为数组对象一旦创建好之后 长度不可改变
+         * 在js中的数组和java中的数组有区别
+         * js中数组也是容器,js中的数组可以保存不同类型的数据数组长度会自动增加
+         *
+         */
+
+        //创建数组的时候可以使用不同的方式
+        /**
+         * 方式一:
+         * 创建数组的时候既没有指明数组元素的类型和数组对象的长度
+         */
+
+        /**
+         *
+
+
+        var arr = new Array();
+        pringln("刚才创建好的数组的长度是:"+arr.length)
+
+        //初始化数组
+        initArray(arr)  //和java中一样,引用类型在传递的时候,传递的是  地址值
+
+        printArray(arr)
+
+
+         *
+         */
+
+        /**
+         * 方式二.创建数组对象的时候就指明数组的长度-但是没什么卵用,超过了js中的数组会自动扩容,不会产生数组越界异常
+         */
+
+//        var arr = new Array(4)
+//
+//        pringln("刚才创建好的数组的长度是:"+arr.length)
+//
+//        //初始化数组
+//        initArray(arr)  //和java中一样,引用类型在传递的时候,传递的是  地址值
+//
+//        printArray(arr)
+
+
+
+        /**
+         * 方式三.创建数组对象的时候并且初始化数组元素
+         */
+
+//        var arr = new Array("a",true,false,23)
+//
+//        pringln("刚才创建好的数组的长度是:"+arr.length)
+//
+//        //初始化数组
+//        initArray(arr)  //和java中一样,引用类型在传递的时候,传递的是  地址值
+//
+//        printArray(arr)
+
+
+        /**
+         * 方式四:调用数组对象上面的join方法
+         * join()把数组中的所有的元素放入一个字符串,元素是通过指定的分隔符进行分隔的
+         */
+
+//        var arr = new Array();
+//        initArray(arr)
+//        var res = arr.join(" ; ")
+//
+//
+//        pringln(res)
+
+
+
+
+       /**
+        * 使用push()方法可以向数组的末尾添加一个或者多个元素,并且返回新的长度
+        *
+        *
+        */
+
+//        var arr = new Array("Hello0")
+//        arr.push("Hello1")
+//        arr.push("Hello2")
+//
+//        for(var i = 0; i < arr.length;i++){
+//            pringln("arr["+i+"]"+arr[i])
+//        }
+//
+//
+//        pringln("对数组的元素进行倒叙排列")
+//        arr.reverse();
+//
+//        for(var i = 0; i < arr.length;i++){
+//            pringln("arr["+i+"]"+arr[i])
+//        }
+
+        //sort方法,对数组的元素进行排序,如果调用该方法时候没有传递参数,将按照字母顺序对该数组中的元素进行排序,说的更精确点,是按照字符编码的顺序进行排序
+
+
+        var arr = ["dd","ff","aa","cc","bb","ee"]
+        pringln("对数组的元素进行排序")
+        arr.sort()
+        pringln(arr)
+
+        //如果按照其他标准进行排序,就需要提供比较函数,该函数要比较两个值,然后返回一个用于说明这两个值的相对顺序的数字.
+        // 比较函数应该有两个参数a和b,其返回值如下
+        /**
+         * 若a小于b,在排序后的数组中a应该出现在b之前,则返回一个小于0的值
+         * 若a等于b,则返回0
+         * 若a大于b,则返回一个大于0的值
+         *
+         */
+        function sortFun(a,b) {
+            return a- b;
+        }
+
+
+        //实现对保存数值类型的数据进行排序
+        var arr = [23,98,65,13,47,22,56,88]
+
+        arr.sort(sortFun);//注意:只需要传递排序函数的名称即可,不能在排序函数后面加()
+        pringln(arr)
+
+
+
+
+        /**
+         *
+         * 初始化数组的方法
+         *
+         */
+
+        function initArray(arr){
+            arr[0] = 10;
+            pringln("给数组0号索引赋值后,数组的长度是:"+arr.length)
+            arr[1] = 10.9;
+            pringln("给数组1号索引赋值后,数组的长度是:"+arr.length)
+            arr[2] = "Hello"
+            pringln("给数组2号索引赋值后,数组的长度是:"+arr.length)
+            arr[3] = "World";
+            pringln("给数组3号索引赋值后,数组的长度是:"+arr.length)
+            arr[4] = new Date()
+            pringln("给数组4号索引赋值后,数组的长度是:"+arr.length)
+        }
+
+
+        /**
+         * 遍历数组的方法
+         */
+        function printArray(arr) {
+            //方式一:使用普通的for循环进行遍历
+            for(var i = 0; i < arr.length;i++){
+                pringln("arr["+i+"]"+arr[i])
+            }
+            pringln("")
+
+            //方式二:使用for in循环遍历数组
+            for (var i in arr){
+                pringln("arr["+i+"]"+arr[i])
+            }
+
+            //方式三:调用数组对象上面的toString()方法
+
+        }
+
+    </script>
+
+
+</head>
+<body>
+
+<!--
+普通的字体
+<big>大号的字体</big>
+-->
+
+<!--<blink>闪动字符</blink>-->
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>jQuery动画效果</title>
+    <meta charset="utf-8">
+
+    <style type="text/css">
+        div {
+            background: red;
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+
+    <script type="text/javascript" src="http://localhost:63343/jQuery/js/jquery-1.8.3.js"></script>
+    <script type="text/javascript">
+        //页面加载完成就调用
+        $(function () {
+            var $div = $("div")
+
+            $("#hideBtn").click(function () {
+                $div.hide(3000);
+            })
+
+            $("#showBtn").click(function () {
+                $div.show(1000);
+            })
+
+            //标记逐渐显示
+            $("#fadeInBtn").click(function () {
+                $div.fadeIn(3000);
+            })
+
+            $("#fadeOutBtn").click(function () {
+                $div.fadeOut(3000);
+            })
+
+            $("#slideUpBtn").click(function () {
+                $div.slideUp(3000);
+            })
+
+            $("#slideDownBtn").click(function () {
+                $div.slideDown(3000);
+            })
+
+
+            //滑动到指定位置
+            $("#animateBtn01").click(function () {
+                $div.animate({"margin-left": 300});//标记的左外边距是300
+                $div.animate({"margin-top": 300});//标记的左外边距是300
+            })
+
+            //在指定的时间移动到指定位置
+            $("#animateBtn02").click(function () {
+                $div.animate({"margin-left": 300}, 3000);//标记的左外边距是300
+                $div.animate({"margin-top": 300}, 3000);//标记的左外边距是300
+            })
+            //移动到指定位置过程中先隐藏后显示
+            $("#animateBtn03").click(function () {
+                $div.animate({
+                        "margin-left": 300,
+                        "opacity": "hide",//逐渐消失
+                    },
+                    3000);//标记的左外边距是300
+
+                //逐渐显示
+                $div.animate({"margin-top": 300, "opacity": "show",}, 3000);//标记的左外边距是300
+            })
+
+        })
+    </script>
+</head>
+<body>
+<!--定义测试对象-->
+<div></div>
+
+<br>
+
+<!--定义按钮-->
+<input type="button" id="hideBtn" value="隐藏"/>
+<input type="button" id="showBtn" value="显示"/>
+<br><br>
+<input type="button" id="fadeInBtn" value="渐显"/>
+<input type="button" id="fadeOutBtn" value="渐淡"/>
+<br><br>
+<input type="button" id="slideUpBtn" value="向上滑动退出"/>
+<input type="button" id="slideDownBtn" value="向下滑动显示"/>
+<br><br>
+<input type="button" id="animateBtn01" value="移动到指定位置"/>
+<input type="button" id="animateBtn02" value="在指定的时间移动到指定位置"/>
+<input type="button" id="animateBtn03" value="移动到指定位置过程中先隐藏后显示"/>
+
+</body>
+</html>

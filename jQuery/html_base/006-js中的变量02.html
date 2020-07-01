@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>练习一</title>
+    <script type="text/javascript">
+        /**
+         * 1.在<script>中声明的变量是全局变量,在整个页面中都是有效的
+         * 2.在函数中声明的变量是局部变量,只在它声明的函数的内部有效
+         * 3.在函数内部声明变量的时候如果没有声明var .这个变量也是  全局变量
+         * 4.当全局变量和局部变量名称重复的时候,在函数内部优先使用局部变量(和java中的规则是一样的呢)
+         */
+
+        /**
+         *1.在<script>中声明的变量是全局变量,在整个页面中都是有效的
+        */
+
+        var global = "java就业班";
+
+        alert("在同一个script标签中访问全局变量grade="+global);
+
+        /**
+         * 2.在函数中声明的变量是局部变量,只在它声明的函数的内部有效
+         *
+         */
+
+        /**
+         * 声明号一个函数,必须要显示的调用函数才会执行
+         */
+        function test() {
+            var grade = "javascript学习";
+            alert("在函数中访问局部变量grade="+grade);
+        }
+
+
+        test();
+        //报错,无法访问局部变量
+       // alert("在函数中访问局部变量grade"+grade);
+
+
+
+
+        /**
+         * 3.在函数内部声明变量的时候如果没有声明var .这个变量也是  全局变量
+         */
+
+        function test01() {
+            gradeTwo = "hello grade";
+
+        }
+        //这里需要注意:在函数中声明的全局变量只有当函数被调用之后才会有效
+        test01();
+        alert("在函数外部访问函数内部声明的全局变量grade"+gradeTwo);
+
+
+        /**
+         * 注意:js语句的结尾可以有;,也可以没有;
+         * @type {string}
+         */
+
+
+        /**
+         * 4.当全局变量和局部变量名称重复的时候,在函数内部优先使用局部变量(和java中的规则是一样的呢)
+         * @type {string}
+         */
+        var gradeThree = "我是全局变量";
+        function test02() {
+            var gradeThree = "我是局部变量";
+            alert("当全局变量和局部变量名称重复的时候,在函数内部有限使用"+gradeThree);
+        }
+
+        test02();
+
+
+
+
+    </script>
+
+
+</head>
+<body>
+</body>
+</html>
+
+
+<script>
+    alert("在另一个script标签中访问全局变量grade="+global);
+</script>

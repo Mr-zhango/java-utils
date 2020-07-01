@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>练习一</title>
+    <script type="text/javascript" src="/html_jQuery/2.js"></script>
+    <script type="text/javascript">
+
+        /**
+         * 当点击按钮的时候对用户输入的名字进行问好
+         *
+         *
+         *      1.js编程的套路:获取页面中的标记对象,然后调用标记对象上面的属性或者方法
+         *
+         *      2.页面中的标记和js中的标记对象是对应的,标记中有什么样的属性,标记对象上就有什么样的属性
+         *
+         *      3.标记中有什么样的操作,标记对象上就还有什么样的方法,例如:按钮标记上面有点击操作,所以按钮标记对象上面就有click()方法
+         *
+         */
+
+
+        /**
+         * 我们可以通过不同的方式来获取标记对象
+         *
+         */
+
+        
+        function sayHello(nameInputObj) {
+            alert("你好"+nameInputObj.value)
+        }
+
+        function sayHello111(nameInputObj) {
+            alert("你好"+nameInputObj)
+        }
+    </script>
+
+
+
+
+</head>
+<body>
+    <form name="form1">
+        <input type="text" name="userName" id="userName">
+
+        <!--
+            我们可以在html中调用js代码,也可以调用指定的函数
+            在这个事件处理句柄中指定的函数就称为回调函数,也就是在发生特定事件的时候自动去调用指定的函数
+
+        -->
+        <input type="button" value="sayHello" onclick="sayHello(document.form1.userName);">
+        <input type="button" value="sayHello" onclick="sayHello111(document.form1.userName.value);">
+    </form>
+</body>
+</html>

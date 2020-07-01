@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>一</title>
+    <script type="text/javascript" src="2.js"></script>
+    <script type="text/javascript">
+
+
+        /*
+
+        /!**
+         * 返回两个参数相乘的乘机
+         * @param p1
+         * @param p2
+         *!/
+        function mul(p1,p2) {
+
+            return p1*p2;
+        }
+
+        var res = mul("hello",2);   //NaN
+        pringln("res:"+res)
+
+        var res2 = mul(10,20)
+        pringln("res2:"+res2)       //200
+
+
+        var res3 = mul("10","20")   //js会自动把字符串类型转化为number类型,然后在进行乘法运算
+
+        pringln("res3:"+res3)       //200
+
+        /!**
+         *      +   运算,只要两遍都是数字则做加法运算,只要两遍的算子有一个字符串类型,则做字符串连接运算
+         * @param p1
+         * @param p2
+         *!/
+        function add(p1,p2) {
+            return p1+p2;
+        }
+
+        var res1 = add(10,20);
+        pringln("res1"+res1)        //30
+
+        var res2 = add("hello",10)
+        pringln(res2)               //hello10   变为了字符串
+
+
+        /!**
+         * js中双等号 == 的用法
+         *
+         * 1.==和java中的==相同的用法
+         * (1)对于两个基本类型来说是比较两个基本类型的值是否相等
+         * (2)对于引用类型来说,是比较两个引用的地址是否相同
+         * (3)
+         *!/
+
+        var num1 = 10,
+            num2 = 10;
+        pringln(num1 == num2)   //true
+
+
+        var s1 = "Hello",
+            s2 = "Hello";
+        pringln(s1 == s2)       //true
+
+        var obj1 = new Object();
+        var obj2 = new Object();
+
+        pringln(obj1 == obj2)   //false(对象的地址值不相同)
+
+        var obj3 = obj1;
+        pringln("obj1 == obj3"+ (obj1 == obj3))     //true
+
+
+
+        //JS中的==和Java中的==不同的用法
+        /!**
+         * 当两个变量的类型不同的时候,js会首先同一类型,然后在进行比较
+         * 转换的规则如下:
+         *      1.数字与字符串进行比较,字符串先转换为数字之后,在进行比较
+         *      2.true转换为1,false转换为0,然后进行比较
+         *
+         *
+         *!/
+
+        pringln("'10' == 10 ?" +('10' == 10))
+
+        //在js中规定,null和undefined 用==比较是相同的
+        pringln("null == undefined :" +(null == undefined))     //true
+
+        //===这是js中特有的运算符,java中没有,只有当两个变量的类型一致的时候,才会进行比较,如果两个变量的类型不一致,则直接返回false
+        //也就是 === 既要比较变流量的类型,又要比较变量的值
+
+        pringln("10 == 10 ?" +(10 == 10))       //true
+
+        pringln("'10' == 10 ?" +('10' == 10))    //false
+
+        pringln("null == undefined :" +(null == undefined))     //true
+        pringln("null === undefined :" +(null === undefined))     //false
+
+        //使用,可以实现多重for循环    ,因为可以有多个初始条件,多个迭代条件,但是只能有一个循环条件
+
+
+        for (var i = 0; i<10;i++){
+            pringln("i= "+i);
+        }
+
+
+        for (var i = 0,j = 10 , k = 100; i<10;i++,j--,k++){
+            pringln("i= "+i +",j="+j+",k="+k);
+        }
+
+
+        /!**
+         * delete运算符的使用
+         * 1.删除对象的某个属性,但是不会影响其他的对象
+         * 2.删除数组中的某个元素,但是不会影响数组的长度和其他数组元素
+         * 3.用在with语句中,删除对象的某个属性
+         *
+         *!/
+
+        function Dept(deptno,dname,loc) {
+            this.deptno = deptno;
+            this.dname = dname;
+            this.loc  = loc;
+            //在类中声明方法
+            this.getInfo = function () {
+
+                //在类的方法中访问类的属性,要使用this.loc格式;this不能忽略
+                this.getInfo = function () {
+                    return "Dept[deptno=" + this.deptno + "dname=" + this.dname + "dlocation=" + this.dlocation + "]";
+                }
+
+            }
+        }
+        var dept1 = new Dept(10,"开发部","北京");
+        var dept2 = new Dept(20,"销售部","上海");
+
+
+        //删除dept2对象的loc属性,但是不会影响dept1对象
+        delete dept2.loc;
+        pringln(dept1)
+        pringln(dept2)
+
+        //删除数组中的某个元素,但是不会影响数组的长度和其他数组元素
+
+        var arr = [10,20,30,40,50,60];  //类似于java中的静态初始化数组      int[] arr = {10,20,30}
+
+        pringln("数组的长度是:"+arr.length);
+
+        //使用for循环遍历数组,和java一样
+        for (var i = 0; i<arr.length ;i++){
+            pringln("arr["+i+"]=" +arr[i]);
+        }
+
+        //删除数组中一号索引的数据,则一号索引的数据是undefined
+        delete arr[1];
+
+        pringln("<br>")
+        pringln("删除数组中一号索引中的数据之后!!!")
+
+        //使用for循环遍历数组,和java一样
+        for (var i = 0; i<arr.length ;i++){
+            pringln("arr["+i+"]=" +arr[i]);
+        }
+
+
+        //3.用在with语句中,删除对象的某个属性
+
+
+        //可以使用with语句简化对象的访问方式
+
+        */
+
+
+
+        function Dept(deptno,dname,loc) {
+            this.deptno = deptno;
+            this.dname = dname;
+            this.loc  = loc;
+            //在类中声明方法
+            this.toString = function () {
+
+                    return "Dept[deptno=" + this.deptno + "dname=" + this.dname + "dloc=" + this.loc + "]";
+                }
+        }
+
+        /*
+        //访问对象属性的/方法的方式一:使用对象的方式访问
+        var dept1 = new Dept(10,"开发部","北京");
+
+        pringln(dept1.deptno+","+dept1.dname+","+dept1.loc)
+        pringln(dept1.toString());
+
+        pringln("")
+
+        //访问对象属性的/方法的方式二:使用with语句,这样就不需要使用对象格式了
+
+        with(dept1){
+            pringln(deptno+","+dname+","+loc);
+            pringln(toString());
+        }
+        */
+
+
+        //使用delete在with语句中,删除对象的某个属性
+        var dept1 = new Dept(10,"开发部","北京");
+
+        with(dept1){
+//            delete loc;
+            pringln(dept1.toString())
+        }
+
+        //访问对象属性的/方法的方式三:使用[]方式进行访问
+
+        pringln(dept1["deptno"] + ","+dept1["dname"]+dept1["loc"]);
+
+    </script>
+
+
+</head>
+<body>
+
+</body>
+</html>

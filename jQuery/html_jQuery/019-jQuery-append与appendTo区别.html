@@ -1,0 +1,37 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>jQuery中append与appendTo区别</title>
+    <meta charset="utf-8">
+
+    <script type="text/javascript" src="http://localhost:63343/jQuery/js/jquery-1.8.3.js"></script>
+    <script type="text/javascript">
+        //页面加载完成就调用
+
+
+
+        $(function () {
+            //jQuery对象上面的append()和appendTo()方法,最终的结果都是:两个节点之间是父子关系,
+            //append()是把父节点放在前面
+            //appendTo()是把子节点放在前面
+
+            $("#append").click(function () {
+                $("p").append($("<b>这是新追加的内容</b>"))
+            })
+
+            $("#appendTo").click(function () {
+                $("<b>这是新追加的内容to</b>").appendTo($("p"));
+            })
+
+        })
+    </script>
+
+</head>
+<body>
+    <p>This is a paragraph.</p>
+    <p>This is another paragraph.</p>
+    <button id="append">在每个 p 元素的结尾添加内容append</button>
+    <button id="appendTo">在每个 p 元素的结尾添加内容appendTo</button>
+</body>
+</html>

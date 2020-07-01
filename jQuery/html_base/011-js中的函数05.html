@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>一</title>
+    <script type="text/javascript" src="2.js"></script>
+    <script type="text/javascript">
+        /**
+         * js中的数据类型分为基本类型和引用类型,js中有内置的引用类型(例如Date类型),也可以使用自定义引用类型
+         * 在js中使用自定义引用类型的过程和java中使用自定义引用类型的过程一样
+         * 1.声明一个类
+         * 2.用声明的类来创建对象,也就是通过new来创建对象
+         * 3.调用对象上的属性和方法
+         *
+         */
+        // 声明一个类:注意js中声明类的时候也是使用function,而不是class
+        //          在类中声明属性,用this.xxx标识类中的属性
+
+        //下面的代码:即是声明类,也是声明构造方法,也是声明了一个函数
+
+        function Dept(deptno, dname, dlocation) {
+            this.deptno = deptno;   //把参数赋值给类中的属性
+            this.dname = dname;    //把参数赋值给类中的属性
+            this.dlocation = dlocation;
+
+            //在类中声明方法
+            this.getInfo = function () {
+                return "Dept[deptno=" + this.deptno + "dname=" + this.dname + "dlocation=" + this.dlocation + "]";
+            }
+        }
+
+
+        //使用new来创建对象
+        var dept = new Dept(10, "研发部", "北京");
+
+        //调用对象上面的属性/方法
+        pringln(dept.deptno + dept.dname + dept.dlocation);
+        pringln(dept.getInfo());
+
+        //改变对象上面的属性
+        dept.dname = "技术部";
+        dept.dlocation = "天津";
+
+        pringln(dept.getInfo());
+
+
+        /**
+         * 下面的代码把dept当做一个函数来看待
+         */
+
+
+
+        function deptFunction(deptno, dname, dlocation) {
+
+            alert("会执行吗?")
+            this.deptno = deptno;   //把参数赋值给类中的属性
+            this.dname = dname;    //把参数赋值给类中的属性
+            this.dlocation = dlocation;
+
+            //在类中声明方法
+            this.getInfo = function () {
+                return "Dept[deptno=" + this.deptno + "dname=" + this.dname + "dlocation=" + this.dlocation + "]";
+            }
+
+            alert("确实执行了")
+        }
+
+        //调用函数
+        deptFunction(10,"市场部","上海");
+
+    </script>
+
+</head>
+<body>
+
+</body>
+</html>

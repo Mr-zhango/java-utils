@@ -1,0 +1,50 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>一</title>
+    <style type="text/css">
+
+    </style>
+    <script type="text/javascript" src="2.js"></script>
+    <script type="text/javascript">
+        function edit() {
+            var tdObj = document.getElementById("name");    //获取td的DOM对象
+            var name = tdObj.innerHTML;                     //获取td中原来的内容
+            tdObj.innerHTML = "<input type='text' id='newName' value='"+name+"' style=\"background-color: greenyellow\">"
+            //执行页面逻辑控制
+            document.getElementById("btn1").disabled = true;  //编辑失效
+            document.getElementById("btn2").disabled = false;  //保存生效
+
+        }
+        function save() {
+            var tdObj = document.getElementById("name");
+            var newName = document.getElementById("newName").value;
+            tdObj.innerHTML = newName;
+
+            //执行页面逻辑控制
+            document.getElementById("btn1").disabled = false;  //编辑生效
+            document.getElementById("btn2").disabled = true;  //保存失效
+        }
+    </script>
+
+
+</head>
+
+<body>
+     <table border="1">
+         <tr>
+             <td width="150">姓名</td>
+             <td width="150">操作</td>
+         </tr>
+         <tr>
+             <td width="150" id="name">李四</td>
+             <td width="150">
+                 <input type="button" value="编辑" onclick="edit()" id="btn1">
+                 <input type="button" value="保存" onclick="save()" id="btn2">
+
+             </td>
+         </tr>
+     </table>
+</body>
+</html>

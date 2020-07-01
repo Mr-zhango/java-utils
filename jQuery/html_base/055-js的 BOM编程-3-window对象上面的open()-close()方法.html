@@ -1,0 +1,51 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>一</title>
+    <style type="text/css">
+
+    </style>
+    <script type="text/javascript" src="2.js"></script>
+    <script type="text/javascript">
+        function openNewWindow() {
+            //在新的窗口或者标签页中打开新的地址
+            window.open("http://www.baidu.com");
+        }
+
+        //关闭浏览器窗口
+        function closeWindow() {
+
+            var str = window.navigator.userAgent;   //获取用户浏览器
+            //使用indexOf()函数截取字符串
+            // <= 0 没有出现说明不是ie
+            if(str.toLowerCase().indexOf(".net clr") <= 0){
+                //注意,ff默认设置是不允许脚本关闭浏览器的,我们可以对其进行设置
+                //在地址栏中中输入  :about:config
+                if(window.confirm("你真的要关闭窗口吗?")){
+                    window.close();
+                }
+            }else{
+                //否则ie自带关闭提示,不用另外加代码
+                window.close();
+            }
+
+
+        }
+    </script>
+
+</head>
+
+<body>
+
+    <a href="javascript:void (0)" onclick="openNewWindow()">在新窗口中打开动力节点官网</a>
+    <br>
+    <a href="http://www.baidu.com">在本窗口中打开百度</a>
+    <br>
+    <a href="http://www.baidu.com" target="_blank">在新窗口中打开百度</a>
+
+    <input type="button" value="关闭窗口" onclick="closeWindow()">
+
+
+</body>
+</html>

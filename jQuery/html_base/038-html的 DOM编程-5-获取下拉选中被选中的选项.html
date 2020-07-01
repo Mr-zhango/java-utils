@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>一</title>
+    <script type="text/javascript" src="2.js"></script>
+    <script type="text/javascript">
+        //onchange:输入标记的值被改变并且失去焦点的处理
+
+        /**
+         * 获取下拉框中被选中选项的值
+         * @param selectObj
+         */
+        function getSelectValue(selectObj) {
+//            var value  = selectObj.value
+//            alert("你选中的对象是:"+value)
+
+
+
+            //获取被选中对象的value和文本
+            //分析:<select标记中有多个<option>的子元素>
+            //所以下拉框标记的dom对象中有个数组的属性,保存的就是多个option对应的dom对象
+            //也就是说,标记的子元素在dom中就是dom对象中的属性
+            //options[] 返回包含下拉列表中的所有选项的一个数组。
+
+            //selectedIndex 设置或返回下拉列表中被选项目的索引号。
+
+            //下拉框中有个 被选中选项的索引
+            //根据被选中的选项的索引从数组中取出响应的元素,就是被选中的选项
+            var optionArr  = selectObj.options      //获取保存多个选项的数组
+
+            var index = selectObj.selectedIndex     //被选中选项的索引
+
+            var optionObj = optionArr[index]
+
+            alert("被选中的选项的value是:"+optionObj.index+"对应的文本是:"+optionObj.innerHTML +"-"+optionObj.innerHTML+"-"
+            +optionObj.text)
+
+
+        }
+
+    </script>
+
+</head>
+
+<body>
+    请选择学历
+    <select onchange="getSelectValue(this)">
+        <option value="gaozhong">高中</option>>
+        <option value="dazhuan">大专</option>>
+        <option value="benke">本科</option>>
+        <option value="shuoshi">硕士</option>>
+    </select>
+
+</body>
+</html>

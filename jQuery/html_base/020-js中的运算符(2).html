@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>一</title>
+    <script type="text/javascript" src="2.js"></script>
+    <script type="text/javascript">
+        /*
+        //js中的new运算符和java中的用法一致,都是通过new来新建对象,然后调用对象上的属性和方法
+        function Dept(deptno, dname, loc) {
+            this.deptno = deptno;
+            this.dname = dname;
+            this.loc = loc;
+            //在类中声明方法
+            this.toString = function () {
+                return "Dept[deptno=" + this.deptno + "dname=" + this.dname + "dlocation=" + this.dlocation + "]";
+            }
+        }
+
+        var dept1 = new Dept(10, "开发部", "北京");
+        pringln(dept1.toString())
+        */
+
+        function Person(name,age) {
+            this.name = name;
+            this.age = age;
+        }
+
+        function Car(owner,color) {
+            this.owner = owner;
+            this.color = color;
+        }
+
+        var per = new Person("张1",21);
+        var car = new Car(per,"红色");
+
+        pringln("汽车的所有者是:"+car.owner)
+
+
+
+        //我们可以单独给某个对象添加属性或者方法,但是不会影响其他对象
+        function Dept(deptno,dname,loc) {
+            this.deptno = deptno;
+            this.dname = dname;
+            this.loc  = loc;
+            //在类中声明方法
+            this.toString = function () {
+
+                return "Dept[deptno=" + this.deptno + "dname=" + this.dname + "dloc=" + this.loc + "]";
+            }
+        }
+
+        var dept1 = new Dept(10,"开发部","北京");
+        var dept2 = new Dept(20,"销售部","上海");
+
+        //给dept1对象动态的添加mgr属性和getMgr()的方法,但是不会影响dept2对象
+        dept1.mgr = "张三";
+        dept1.getMgr = function () {
+            return this.dname + "的经理是:" + this.mgr;
+        }
+
+        pringln(dept1.getMgr())
+
+        pringln(dept2.getMgr())  //对象上没有该方法
+
+
+        /**
+         * this在js中有两种用法
+         *  1.在js中声明类的时候,this表示当前对象
+         *  2.出现在html标记中,表示当前的html对象
+         */
+
+        function validate(ageInput,lowValue,heiValue) {
+            if(isNaN(ageInput.value)){
+                alert("不是有效的数值格式!!!")
+
+            }else {
+                if(ageInput.value>=lowValue && ageInput.value <= heiValue){
+                    alert("输入的年龄有效");
+                }else{
+                    alert("输入的年龄无效")
+
+                }
+
+            }
+        }
+
+    </script>
+
+
+</head>
+<body>
+
+<!--
+    onChange:输入标记的值被改变,并且失去焦点事件的处理句柄
+-->
+请输入有效的年龄<input type="text" name="age" onChange="validate(this,20,30)">
+
+
+
+</body>
+</html>

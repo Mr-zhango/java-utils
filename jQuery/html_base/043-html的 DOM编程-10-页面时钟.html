@@ -1,0 +1,32 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>一</title>
+    <style type="text/css">
+
+    </style>
+    <script type="text/javascript" src="2.js"></script>
+    <script type="text/javascript">
+        function showTime() {
+            var divObj = document.getElementById("div")
+            var date = new Date();
+            divObj.innerHTML = date.toLocaleString();
+
+        }
+        
+        function startTime() {
+            //每间隔1000ms,就调用第一次showTime()
+            window.setInterval("showTime()",1000)
+        }
+    </script>
+
+
+</head>
+
+<body>
+    <input type="button" value="显示时间" onclick="startTime()">
+    <br>
+    <div id="div"></div>
+</body>
+</html>

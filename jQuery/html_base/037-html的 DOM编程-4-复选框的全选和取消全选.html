@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>一</title>
+    <script type="text/javascript" src="2.js"></script>
+    <script type="text/javascript">
+
+        function checkAllOrCancleAll(checkBoxObj) {
+            var spanObj = document.getElementById("info")
+
+
+
+            //页面中多个标记的name属性是一样的,通过标记的name属性来获取dom对象,
+            //获取到的应该是多个dom对象,也就是也该数组对象,数组中的元素就是一个个dom对象(就是一个数组)
+            var checkBoxArr = document.getElementsByName("aihao")
+
+            if(checkBoxObj.checked){
+                //alert("被选中")
+
+
+                //遍历数组,让数组中的每个checkbox的checked=true即可
+                for (var i = 0; i < checkBoxArr.length; i++ ){
+                    //让每一个都选中
+                    checkBoxArr[i].checked = true;
+                }
+
+                spanObj.innerHTML = "取消全选"
+            }else{
+                //alert("被取消")
+                //遍历数组,让数组中的每个checkbox的checked=true即可
+                for (var i = 0; i < checkBoxArr.length; i++ ){
+                    //让每一个都选中
+                    checkBoxArr[i].checked = false;
+                }
+
+                spanObj.innerHTML = "全选"
+            }
+        }
+    </script>
+
+</head>
+
+<body>
+    <!--
+    checkbox中有个属性 checked,这是一个单属性,表示整个复选框被选中
+    可以写成
+    checked="checked"
+    checked=true
+    checked
+
+    -->
+    <input type="checkbox" onclick="checkAllOrCancleAll(this)"><span id="info">全选</span>
+    <hr>
+    <input type="checkbox" name="aihao" value="yundong">运动<br>
+    <input type="checkbox" name="aihao" value="dushu">读书<br>
+    <input type="checkbox" name="aihao" value="lvyou">旅游<br>
+    <input type="checkbox" name="aihao" value="meishi">美食<br>
+    <input type="checkbox" name="aihao" value="gouwu">购物<br>
+
+</body>
+</html>

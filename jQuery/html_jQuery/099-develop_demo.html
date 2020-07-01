@@ -1,0 +1,54 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>jQuery表单input框选择器</title>
+    <meta charset="utf-8">
+
+    <script type="text/javascript" src="jquery-1.8.3.js"></script>
+    <script type="text/javascript">
+
+        //页面加载完成就调用
+        $(function () {
+
+            $("#btn06").click(function () {
+                let jsonParam = '{"projectName":"项目","auditType":"例行审计22","channelAttribute":"1"}'
+                $.ajax({
+                    type: "post",
+                    url: "http://localhost:8080/v1/api/abwpworkplanmain/findLastWorkPlanDetailList",
+                    //请求参数(可以直接写json,也是键值对的形式)
+                    data: {"jsonParam": jsonParam},
+                    //成功之后的回调函数
+                    success: function (emp) {
+                        console.log(emp)
+                    }
+                });
+            })
+
+            $("#btn07").click(function () {
+
+                $.ajax({
+                    type: "get",
+                    url: "http://localhost:8080/v1/api/abwpworkplanmain/findWorkPlanList",
+                    //请求参数(可以直接写json,也是键值对的形式)
+                    //data: {"keys":"emp"},
+                    //成功之后的回调函数
+                    success: function (emp) {
+                        alert("Data Saved: " + emp);
+                    }
+                });
+            })
+        })
+    </script>
+
+
+</head>
+<body>
+<br>
+<br>
+<!--定义按钮-->
+
+<button id="btn06">AJAX异步请求后台数据post方式</button>
+<button id="btn07">AJAX异步请求后台数据get方式</button>
+</body>
+</html>

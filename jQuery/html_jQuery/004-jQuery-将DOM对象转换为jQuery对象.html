@@ -1,0 +1,25 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>将DOM对象转换为jQuery对象</title>
+    <meta charset="utf-8">
+    <script type="text/javascript" src="http://localhost:63343/jQuery/js/jquery-1.8.3.js"></script>
+    <script type="text/javascript">
+        //为了让代码在浏览器加载完成页面之后调用,要写jQuery的处理函数
+        $(function () {
+            //把DOM对象转换成为jQuery对象$(DOM对象)
+            //声明jQuery对象的时候使用$xxx的格式
+            var btnObj = document.getElementById("myBtn");//根据标记的ID属性获取DOM对象
+            var $btn = $(btnObj);//把DOM对象转换成为jQuery对象
+
+            //jQuery对象上面的val()方法是,是获取DOM对象的value值
+
+            alert("用jQuery方式获取标记的value值"+$btn.val()+"用DOM的方式获取对象的value值:"+btnObj.value)
+        })
+    </script>
+</head>
+<body>
+    <input type="button" value="点击我" id="myBtn"/>
+</body>
+</html>

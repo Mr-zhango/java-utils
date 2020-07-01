@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>练习一</title>
+
+    <!--引入外部的js-->
+    <!--script标记中可以不使用type属性,也可以使用type属性,type属性的值必须是type="text/javascript"-->
+    <!--
+        请注意,这是错误引入js的写法,正确的写法是不写或者是写成   type="text/javascript"
+        <script type="javascript" src="/js/1.js"></script>
+    -->
+    <script type="text/javascript" src="1.js"></script>
+</head>
+<body>
+<div align="center">
+    <form action="Test02.html" method="get">
+        <table border="1" bgcolor="aqua">
+            <tr>
+                <td align="right">姓名</td>
+                <td align="left">
+                    <input type="text" id="userName" name="userName" value="请输入用户名" onclick="clearValue()">
+                </td>
+            </tr>
+            <tr>
+                <td align="right">密码</td>
+                <td align="left">
+                    <input type="password" id="pwd" name="pwd">
+                </td>
+            </tr>
+            <tr>
+                <td align="right">请输入确认密码</td>
+                <td align="left">
+                    <input type="password" id="repwd" name="repwd">
+                </td>
+            </tr>
+            <tr>
+                <td align="center" colspan="2">
+                    <!--当我们点击提交按钮之后,我们对表单数据进行检测
+                        如果检测通过,继续提交表单,如果检测失败,终止提交表单,并且给出提示信息,
+
+                        添加鼠标点击事件,
+                        加上return,返回校验函数的结果,boolean类型的值-->
+                    <input type="submit" value="提交" onclick="return checkForm()">
+                    <input type="reset" value="重置">
+                </td>
+            </tr>
+        </table>
+    </form>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>一</title>
+    <script type="text/javascript" src="2.js"></script>
+    <script type="text/javascript">
+        /**
+         * js中的字符串类型是一种基本类型,表示一个或者多个字符,可以使用"",也可以使用''
+         * js中的字符串类型也是采用Unicode编码的,一个字符占用两个字节
+         * 注意:java中的基本类型的变量上没有任何的属性和方法(int i; i.xxx 没有, i.xxx()也是没有)
+         *      但是在js中基本类型的变量上是有属性和方法的(int i; i.xxx 有, i.xxx()也有)
+         */
+
+        var s1 = "Hello"
+        var s2 = "动力节点"
+
+        pringln(s1+"的长度是:"+s1.length);
+
+        pringln(s1 +"的长度是:"+s2.length)
+
+        /**
+         * js把非String类型的数据转换为String类型的数据,有如下的几种方法
+         * 1.几乎任务类型的变量上都有toString()方法
+         * 2.使用String()函数
+         * 3.任何类型的数据加上字符串,结果都是字符串类型
+         *
+         */
+
+        /**
+         * 1.几乎任何的变量上面都有toString()方法
+         * 2.注意:但是null和undefined上面没有toString()方法
+         *
+         */
+        var num1 = 10,
+            num2 = NaN;
+        var s3 = num1.toString();
+
+        var s4  = num2.toString();
+
+        pringln(s3+"的类型是:"+typeof s3);
+
+        pringln(s4+"的类型是:"+typeof s4);
+
+        var b1 = true,
+            b2 = false;
+
+        var s3 = b1.toString();
+        var s4 = b2.toString();
+        pringln(s3+"的类型是:"+typeof s3);
+        pringln(s4+"的类型是:"+typeof s4);
+
+
+        /**
+         *
+         * @type {string}
+
+        //但是null和undefined上面没有toString()方法
+        var s5  = null.toString();
+        var s6 = undefined.toString();
+        pringln(s5+"的类型是:"+typeof s5);
+        pringln(s6+"的类型是:"+typeof s6);
+         */
+
+        /**
+         * number类型上面的toString()方法,可以把同一个人number转换成不同进制格式的字符串
+         *
+         */
+        var num3 = 10;
+        pringln("10被转化成2进制格式的字符串:"+num3.toString(2));
+
+        pringln("10被转化成2进制格式的字符串:"+num3.toString("2"));
+
+        pringln("10被转化成8进制格式的字符串:"+num3.toString(8));
+
+        pringln("10被转化成16进制格式的字符串:"+num3.toString(16));
+
+
+
+
+        //2.使用String()函数,可以将任何类型的数据转换成String类型
+        var s5 = String(null);
+        var s6 = String(undefined);
+
+        pringln(s5)
+        pringln(s6)
+
+
+        /**
+         * 3.任何类型的数据加上字符串,结果都是字符串类型
+         */
+
+
+        var s7 = null;
+        var s8 = undefined;
+        var s9 = 10;
+        pringln(s7+"null");
+        pringln(s8+"undefined");
+        pringln(s9+"10");
+    </script>
+
+
+</head>
+<body>
+
+</body>
+</html>
