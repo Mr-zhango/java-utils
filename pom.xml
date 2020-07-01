@@ -15,6 +15,7 @@
         <module>spring-demo-SpringBoot</module>
         <module>rabbitmq-demo</module>
         <module>SpringDataRedisDemo</module>
+        <module>jedis-demo</module>
     </modules>
 
     <parent>

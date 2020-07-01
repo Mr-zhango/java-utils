@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: jedis-demo
+  redis:
+    host: localhost
+    port: 6379
+    timeout: 10000
+    database: 3
+    jedis:
+      pool:
+        max-active: 1024
+        max-idle: 200
+        max-wait: 10000
+        min-idle: 10
+server:
+  port: 8090
