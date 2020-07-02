@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>jedis-demo</groupId>
-    <artifactId>demo</artifactId>
+    <artifactId>jedis-demo</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>jedis-demo</name>
     <description>Demo project for Spring Boot</description>

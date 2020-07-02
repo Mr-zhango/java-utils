@@ -16,6 +16,7 @@
         <module>rabbitmq-demo</module>
         <module>SpringDataRedisDemo</module>
         <module>jedis-demo</module>
+        <module>springboot-quartz</module>
     </modules>
 
     <parent>
