@@ -1,0 +1,33 @@
+server:
+  port: 8088
+spring:
+  application:
+    name: consumer-service
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:10086/eureka
+    registry-fetch-interval-seconds: 3
+  instance:
+    prefer-ip-address: true
+    ip-address: 127.0.0.1
+feign:
+  hystrix:
+    enabled: true # 开启feign的熔断功能
+ribbon:
+  # 连接超时时间
+  ConnectionTimeOut: 500
+  # 获取数据超时时间
+  ReadTimeOut: 2000
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 3000
+#    user-service:
+#      execution:
+#        isolation:
+#          thread:
+#            timeoutInMilliseconds: 3000
