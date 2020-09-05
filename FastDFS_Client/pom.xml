@@ -8,7 +8,7 @@
     <packaging>jar</packaging>
     <!-- x-SNAPSHOT -->
 
-    <name>fastdfs-client</name>
+    <name>FastDFS_Client</name>
     <description>基于yuqih发布的代码与fastdfs-client 官方1.26版本的重构</description>
     <url>https://github.com/tobato/FastDFS_Client</url>
 
