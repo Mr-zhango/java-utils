@@ -5,12 +5,12 @@
     <modelVersion>4.0.0</modelVersion>
 
 
-    <parent>
+    <!--<parent>
         <artifactId>tensquare_parent</artifactId>
         <groupId>cn.myfreecloud</groupId>
         <version>1.0-SNAPSHOT</version>
-        <!--<relativePath>../tensquare_parent/pom.xml</relativePath>-->
-    </parent>
+        &lt;!&ndash;<relativePath>../tensquare_parent/pom.xml</relativePath>&ndash;&gt;
+    </parent>-->
 
     <groupId>org.example</groupId>
     <artifactId>demo_rabbitmq_consumer</artifactId>
