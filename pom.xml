@@ -17,6 +17,7 @@
         <module>SpringDataRedisDemo</module>
         <module>jedis-demo</module>
         <module>springboot-quartz</module>
+        <module>R-Demo</module>
     </modules>
 
     <parent>
