@@ -18,6 +18,7 @@
         <module>jedis-demo</module>
         <module>springboot-quartz</module>
         <module>R-Demo</module>
+        <module>date-utils</module>
     </modules>
 
     <parent>

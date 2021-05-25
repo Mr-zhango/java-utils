@@ -11,7 +11,7 @@ public class FastDFSDemo {
 	
 	public static void main(String[] args) throws Exception {
 		//流不认识 相对路径    相对路径  都变成绝对
-		ClientGlobal.init("C:\\develop\\IDEA\\JavaWEB\\fastdfs\\src\\main\\resources\\fdfs_client.conf");
+		ClientGlobal.init("D:\\develop\\IDEA\\idea_project\\my_projects\\java-utils\\fast-dfs\\src\\main\\resources\\fdfs_client.conf");
 		
 		TrackerClient trackerClient = new TrackerClient();
 		//连接 Tracker
@@ -19,7 +19,7 @@ public class FastDFSDemo {
 		//Storage
 		StorageClient1 storageClient1 = new StorageClient1(trackerServer,null);
 		//上传图片
-		String path = storageClient1.upload_file1("C:\\Users\\zhangyang\\Desktop\\SpringData的正则表达式.jpg",
+		String path = storageClient1.upload_file1("D:\\Desktop\\bef584b2b29387df11e7c2fab1d909f.jpg",
 				"jpg", null);
 		System.out.println(path);
 

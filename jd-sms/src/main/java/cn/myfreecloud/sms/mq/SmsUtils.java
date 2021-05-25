@@ -23,6 +23,18 @@ import java.util.Map;
 public class SmsUtils {
 
 
+    public static void main(String[] args) {
+        String[] str={""};
+
+        for (String s : str) {
+            System.out.println(s);
+        }
+
+        System.out.println(str.length);
+
+        System.out.println(str[0]);
+    }
+
 
     @Autowired
     private Environment env;
