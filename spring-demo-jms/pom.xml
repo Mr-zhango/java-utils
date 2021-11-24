@@ -27,10 +27,11 @@
 
     <!--利用依赖传递,来引用activeMQ的包-->
     <dependencies>
+        <!-- https://mvnrepository.com/artifact/org.apache.activemq/activemq-core -->
         <dependency>
-            <groupId>cn.myfreecloud</groupId>
-            <artifactId>jd-pojo</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <groupId>org.apache.activemq</groupId>
+            <artifactId>activemq-core</artifactId>
+            <version>5.7.0</version>
         </dependency>
     </dependencies>
 </project>
