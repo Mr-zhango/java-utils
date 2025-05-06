@@ -28,10 +28,10 @@
     <!--利用依赖传递,来引用activeMQ的包-->
     <dependencies>
         <!-- https://mvnrepository.com/artifact/org.apache.activemq/activemq-core -->
-        <dependency>
-            <groupId>org.apache.activemq</groupId>
-            <artifactId>activemq-core</artifactId>
-            <version>5.7.0</version>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.apache.activemq</groupId>-->
+<!--            <artifactId>activemq-core</artifactId>-->
+<!--            <version>5.7.0</version>-->
+<!--        </dependency>-->
     </dependencies>
 </project>
